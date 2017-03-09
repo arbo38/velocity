@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="slider/slider.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="red darken-2">
+    <div class="nav-wrapper container">
+      <a href="#" id="logo-container" class="brand-logo">Velo-city <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="">Link 1</a></li>
+        <li><a href="">Link 2</a></li>
+        <li><a href="">Link 3</a></li>
+      </ul> <!-- ul.right hide-on-med-and-down -->
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="">Link 1</a></li>
+        <li><a href="">Link 2</a></li>
+        <li><a href="">Link 3</a></li>
+      </ul> <!-- ul.side-nav -->
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div> <!-- div.nav-wrapper container -->
+  </nav> <!-- nav.purlpe darken-4 -->
+
+  <div class="banner red accent-2" id="intro-banner">
+    <div class="container">
+      <h4 class="white-text">Introduction to Velocity</h1>
+      </div> <!-- div.container -->
+    </div> <!-- div#intro-banner.banner red accent-2 -->
+
+    <section class="yellow ">
+      <div class="container">
+        <div class="row section-row">
+          <div class="slider_container col s8" id="test">
+            <img src="slider/images/img_01.jpg" class="slide number_01" />
+            <img src="slider/images/img_02.jpg" class="slide number_02"/>
+            <img src="slider/images/img_03.jpg" class="slide number_03"/>
+            <img src="slider/images/img_04.jpg" class="slide number_04"/>
+            <img src="slider/images/img_05.jpg" class="slide number_05"/>
+          </div> <!-- div.slider_container -->
+          <div class="col s4 ">
+            <ul class="collapsible white" data-collapsible="accordion">
+              <li><div class="collapsible-header"><h4>Velo-city en 3 étapes</h4></div></li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Sélectionner une station</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">place</i>Réserver un vélo</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Signer votre réservation</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+              </li>
+            </ul>
+
+          </div>
+        </div> <!-- div.row -->
+      </div> <!-- div.container -->
+    </section>
+
+
+    <div class="banner red accent-2" id="intro-banner">
+      <div class="container">
+        <h4 class="white-text">Velocity in action</h1>
+        </div> <!-- div.container -->
+      </div> <!-- div#intro-banner.banner red accent-2 -->
+
+      <div class="yellow">
+        <div class="container">
+          <div class="row section-row">
+            <div class="col s4 card ">
+              <table class="white striped">
+                <thead>
+                  <tr>
+                    <th data-field="name" colspan="2" class="center-align">Information station</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="info-station-titles">Nom</td>
+                    <td><span id="info-station-name" class="info-station">Mayo</span></td>
+                  </tr>
+                  <tr>
+                    <td class="info-station-titles">Status</td>
+                    <td><span id="info-station-status" class="info-station">Ouverte</span></td>
+                  </tr>
+                  <tr>
+                    <td class="info-station-titles">Adresse</td>
+                    <td><span id="info-station-address" class="info-station">2 allée de taillefer</span></td>
+                  </tr>
+                  <tr>
+                    <td class="info-station-titles">Capacité</td>
+                    <td><span id="info-station-capacity" class="info-station">54</span></td>
+                  </tr>
+                  <tr>
+                    <td class="info-station-titles">Vélo disponibles</td>
+                    <td><span id="info-station-available-bikes" class="info-station">22</span></td>
+                  </tr>
+                  <tr>
+                    <td class="info-station-titles">Emplacement disponible</td>
+                    <td><span id="info-station-available-stands" class="info-station">32</span></td>
+                  </tr>
+                </tr>
+              </tbody>
+            </table>
+            <div class="contol-container center-align">
+              <a class="waves-effect waves-light btn" >Me localiser</a>
+              <a id="reservation-button" class="waves-effect waves-light btn" disabled="true" href="#modal1" >Réserver</a>
+            </div> <!-- div.contol-container -->
+
+          </div> <!-- div.col s4 card yellow -->
+
+          <div class="map-container col s8">
+            <div id="google-map" class="">
+
+            </div> <!-- div#googleMap -->
+            <div class="display-error text-center alert alert-danger">
+              Une erreur est survenue 
+              <button class="error-refresh btn btn-primary ">Raffraichir la page</button>
+            </div> <!-- div.display-error -->
+          </div> <!-- div.map-container -->
+
+        </div> <!-- div.row -->
+      </div> <!-- div.container -->
+    </section>
+
+
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
+
+
+    <footer class="page-footer orange">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Réservation</h5>
+            <p class="grey-text text-lighten-4">Une réservation en cours à la station <span id="station-name">Porte-Mayo</span></p>
+            <p class="grey-text text-lighten-4">La réservation expirera dans <span id="minutes-remaining">12</span> mn et <span id="secondes-remaining">39</span>s</p>
+            <div class="contol-container ">
+              <a class="waves-effect waves-light btn red" disabled>Annuler</a>
+            </div> <!-- div.contol-container -->
+          </div>
+        </div>
+      </footer>
+
+      <!--  Scripts--> 
+      <script src="https://use.fontawesome.com/940c48a510.js"></script><!-- Latest fontawesome -->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script><!-- Jquery -->     
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script> <!-- Signature Pad Librairy -->
+      <!-- Boostrap JS-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+      <script src="js/materialize/materialize.js"></script><!-- Materialize -->
+      <script src="js/materialize/init.js"></script><!-- Materialize Init -->
+      <script src="slider/slider.js"></script><!-- Slider -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ8nyVuNJ_C3E2I5XDluKaxHGSbSlOKeo"></script><!-- Google Map API call -->
+      <script src="js/velocity/velocity_init_function.js"></script><!-- Velocity -->
+      <script src="js/velocity/velocity_map.js"></script><!-- Velocity -->
+      <script src="js/velocity/velocity_settings.js"></script><!-- Velocity -->
+      <script src="js/velocity/velocity_stations.js"></script><!-- Velocity -->
+      <script src="js/velocity/velocity_page_objects.js"></script><!-- Velocity -->
+      <script>
+        $(document).ready(function(){
+          runSlider();
+          velocityRun();
+          $('.modal').modal();
+        })
+      </script>
+
+    </body>
+    </html>

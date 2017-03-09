@@ -1,0 +1,59 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+#intro-banner{
+	margin: 0 !important;
+	padding: 20px;
+}
+
+#intro-banner h4{
+	margin: 0;
+}
+
+.collapsible-header h4{
+	margin: 0;
+	text-align: center;
+	padding: 5px;
+}
+
+.info-station{
+	padding: 5px;
+}
+
+#google-map{
+	height: 400px;
+	margin: 0;
+	padding: 0;
+}
+
+.display-error{
+	display: none;
+}
+
+.info-station-titles{
+	width: 40%;
+}
+
+.label{
+	font-size: 14px;
+}
+
+div.contol-container{
+	margin: 5px;
+}
+
+#signature-canvas{
+	border: 1px solid black;
+}
