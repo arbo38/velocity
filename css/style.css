@@ -57,3 +57,16 @@ div.contol-container{
 #signature-canvas{
 	border: 1px solid black;
 }
+
+/* Information Station Card */
+
+/* Configuration du bouton d'action */
+
+div.card-image{
+	position: relative;
+}
+
+div#info-station-action-btn{
+	position: absolute;
+	bottom: -28px;
+}

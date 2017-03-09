@@ -79,45 +79,69 @@
         <div class="container">
           <div class="row section-row">
             <div class="col s4 card ">
-              <table class="white striped">
-                <thead>
-                  <tr>
-                    <th data-field="name" colspan="2" class="center-align">Information station</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="info-station-titles">Nom</td>
-                    <td><span id="info-station-name" class="info-station">Mayo</span></td>
-                  </tr>
-                  <tr>
-                    <td class="info-station-titles">Status</td>
-                    <td><span id="info-station-status" class="info-station">Ouverte</span></td>
-                  </tr>
-                  <tr>
-                    <td class="info-station-titles">Adresse</td>
-                    <td><span id="info-station-address" class="info-station">2 allée de taillefer</span></td>
-                  </tr>
-                  <tr>
-                    <td class="info-station-titles">Capacité</td>
-                    <td><span id="info-station-capacity" class="info-station">54</span></td>
-                  </tr>
-                  <tr>
-                    <td class="info-station-titles">Vélo disponibles</td>
-                    <td><span id="info-station-available-bikes" class="info-station">22</span></td>
-                  </tr>
-                  <tr>
-                    <td class="info-station-titles">Emplacement disponible</td>
-                    <td><span id="info-station-available-stands" class="info-station">32</span></td>
-                  </tr>
-                </tr>
-              </tbody>
-            </table>
-            <div class="contol-container center-align">
-              <a class="waves-effect waves-light btn" >Me localiser</a>
-              <a id="reservation-button" class="waves-effect waves-light btn" disabled="true" href="#modal1" >Réserver</a>
-            </div> <!-- div.contol-container -->
 
+              <!-- Card Content : Affichage de la station sélectionné -->
+              <!-- ********************************************* -->
+              <div class="card-image card-table">
+                <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
+                <div class="fixed-action-btn click-to-toggle" id="info-station-action-btn">
+                  <a class="btn-floating btn-large red">
+                    <i class="material-icons">menu</i>
+                  </a>
+                  <ul>
+                    <li><a class="btn-floating green activator" id="reservation-btn"><i class="material-icons">navigation</i></a></li>
+                    <li><a class="btn-floating blue"><i class="material-icons">my_location</i></a></li>
+                  </ul>
+                </div>
+                <table class="white striped">
+                  <thead>
+                    <tr>
+                      <th data-field="name" colspan="2" class="center-align">Information station</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="info-station-titles">Nom</td>
+                      <td><span id="info-station-name" class="info-station">Mayo</span></td>
+                    </tr>
+                    <tr>
+                      <td class="info-station-titles">Status</td>
+                      <td><span id="info-station-status" class="info-station">Ouverte</span></td>
+                    </tr>
+                    <tr>
+                      <td class="info-station-titles">Adresse</td>
+                      <td><span id="info-station-address" class="info-station">2 allée de taillefer</span></td>
+                    </tr>
+                    <tr>
+                      <td class="info-station-titles">Capacité</td>
+                      <td><span id="info-station-capacity" class="info-station">54</span></td>
+                    </tr>
+                    <tr>
+                      <td class="info-station-titles">Vélo disponibles</td>
+                      <td><span id="info-station-available-bikes" class="info-station">22</span></td>
+                    </tr>
+                    <tr>
+                      <td class="info-station-titles">Emplacement disponible</td>
+                      <td><span id="info-station-available-stands" class="info-station">32</span></td>
+                    </tr>
+                  </tr>
+                </tbody>
+              </table>
+            </div> <!-- div.card-image -->
+            <div class="divider"></div> <!-- div.divider -->
+            <div class="card-content">
+              <p>
+                Utilisez le bouton d'action pour vous localiser ou réserver votre vélo.
+              </p>
+            </div> <!-- div.card-content -->
+
+            <!-- Card reveal : Finalisationd de la reservation -->
+            <!-- ********************************************* -->
+
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Votre réservation<i class="material-icons right" id="close-reservation-panel">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
           </div> <!-- div.col s4 card yellow -->
 
           <div class="map-container col s8">
@@ -136,15 +160,15 @@
 
 
     <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-    </div>
-  </div>
 
 
     <footer class="page-footer orange">
@@ -188,3 +212,11 @@
 
     </body>
     </html>
+
+<!-- 
+<div class="contol-container center-align">
+  <a class="waves-effect waves-light btn activator" >Me localiser</a>
+  <a id="reservation-button" class="waves-effect waves-light btn" disabled="true" href="#modal1" >Réserver</a>
+</div> div.contol-container -->
+
+

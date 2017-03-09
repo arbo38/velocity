@@ -4,5 +4,6 @@ function velocityRun(){
 	velibMap.map();
 	console.log("velocityRun done");
 	stationsHandler.requestStations();
+	informationStation.actionButtonListener();
 	//reservationHandler.checkReservation();
 }

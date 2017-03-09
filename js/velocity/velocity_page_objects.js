@@ -62,9 +62,22 @@ const informationStation = {
 			$("#info-station-available-stands").addClass('label label-danger');
 		}
 	},
-	setReservationButton(){
-		if(currentStation.available_bikes > 0){
-			 $('#reservation-button').removeAttr("disabled");
+	actionButtonAction(type){
+		if(type === true){
+			$("#info-station-action-btn").show();
 		}
-	}
+		else{
+			$("#info-station-action-btn")
+				.hide()
+				.removeClass('active');
+		}
+	}, 
+	actionButtonListener(type){
+		$("#reservation-btn").on("click", function(){ // Cacher le bouton d'action
+			informationStation.actionButtonAction(false);
+		});
+		$("#close-reservation-panel").on("click", function(){ // Afficher le bouton d'action
+			informationStation.actionButtonAction(true);
+		});
+	},
 }
