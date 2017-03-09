@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>Velo-city: Réservation de vélo sur Paris</title>
 
   <!-- CSS  -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -83,14 +83,12 @@
               <!-- Card Content : Affichage de la station sélectionné -->
               <!-- ********************************************* -->
               <div class="card-image card-table">
-                <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-                <div class="fixed-action-btn click-to-toggle" id="info-station-action-btn">
-                  <a class="btn-floating btn-large red">
-                    <i class="material-icons">menu</i>
+                <div class="fixed-action-btn" id="info-station-action-btn">
+                  <a class="btn-floating btn-large green activator tooltipped" id="open-reservation-panel-btn" data-position="right" data-delay="50" data-tooltip="Réserver"  disabled >
+                    <i class="material-icons">navigation</i>
                   </a>
                   <ul>
-                    <li><a class="btn-floating green activator" id="reservation-btn"><i class="material-icons">navigation</i></a></li>
-                    <li><a class="btn-floating blue"><i class="material-icons">my_location</i></a></li>
+                    <li><a class="btn-floating blue tooltipped" data-position="right" data-delay="50" data-tooltip="Me localiser"><i class="material-icons">my_location</i></a></li>
                   </ul>
                 </div>
                 <table class="white striped">
@@ -138,80 +136,114 @@
             <!-- Card reveal : Finalisationd de la reservation -->
             <!-- ********************************************* -->
 
-            <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Votre réservation<i class="material-icons right" id="close-reservation-panel">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-          </div> <!-- div.col s4 card yellow -->
+            <div class="card-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Signez pour finaliser la résevation">
+              <span class="card-title grey-text text-darken-4">Votre réservation<i class="material-icons right" id="close-reservation-panel">close</i></span>
+              <table class="white striped">
+                <tbody id="testbody">
+                  <tr>
+                    <td class="info-reservation-titles">Station</td>
+                    <td><span id="info-reservation-name" class="info-reservation">Mayo</span></td>
+                  </tr>
+                  <tr>
+                    <td class="info-reservation-titles">Adresse</td>
+                    <td><span id="info-reservation-address" class="info-reservation">2 allée de taillefer</span></td>
+                  </tr>
+                  <!--<tr>
+                    <td class="info-reservation-bikes-number">Nombre de vélo</td>
+                    <td><span class="info-reservation">1</span></td>
+                  </tr> -->
+                  <tr>
+                    <td class="info-reservation-titles">Validité</td>
+                    <td><span id="info-reservation-validity" class="info-reservation">20mn</span></td>
+                  </tr>
+                </tr>
+              </tbody>
+            </table>
+            <div id="signature-canvas-container" class="center-align" >
+              <canvas id="signature-canvas" class="signature-canva">
+                Votre navigateur ne supporte HTML5 Canvas.
 
-          <div class="map-container col s8">
-            <div id="google-map" class="">
+              </canvas>
+              <div class="fixed-action-btn" id="signature-action-btn">
+                <a id="save-reservation" class="btn-floating btn-large green tooltipped" data-position="right" data-delay="50" data-tooltip="Confirmer la réservation">
+                  <i class="material-icons">done</i>
+                </a>
+                <ul>
+                 <li>
+                   <a class="btn-floating orange tooltipped" id="clear-canvas" data-position="right" data-delay="50" data-tooltip="Effacer la signature">
+                     <i class="material-icons">fast_rewind</i>
+                   </a>
+                 </li>
+               </ul>
+             </div>
+           </div> <!-- div#signature-canvas-container -->
+           <p class="center-align" style="margin-bottom: 0px;">
+               Survoler le bouton d'action pour confirmer votre réservation ou effacer la signature.
+             </p>
+         </div><!-- div.card-reveal -->
+       </div> <!-- div.col s4 card yellow -->
 
-            </div> <!-- div#googleMap -->
-            <div class="display-error text-center alert alert-danger">
-              Une erreur est survenue 
-              <button class="error-refresh btn btn-primary ">Raffraichir la page</button>
-            </div> <!-- div.display-error -->
-          </div> <!-- div.map-container -->
+       <!-- Google Map : Affichage de la carte et des stations -->
+       <!-- ************************************************** -->
 
-        </div> <!-- div.row -->
-      </div> <!-- div.container -->
-    </section>
+       <div class="map-container col s8">
+        <div id="google-map" class="">
 
+        </div> <!-- div#googleMap -->
+        <div class="display-error text-center alert alert-danger">
+          Une erreur est survenue 
+          <button class="error-refresh btn btn-primary ">Raffraichir la page</button>
+        </div> <!-- div.display-error -->
+      </div> <!-- div.map-container -->
 
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div> <!-- div.row -->
+  </div> <!-- div.container -->
+</section>
+
+<footer class="page-footer orange">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Réservation</h5>
+        <p class="grey-text text-lighten-4">Une réservation en cours à la station <span id="station-name">Porte-Mayo</span></p>
+        <p class="grey-text text-lighten-4">La réservation expirera dans <span id="minutes-remaining">12</span> mn et <span id="secondes-remaining">39</span>s</p>
+        <div class="contol-container ">
+          <a class="waves-effect waves-light btn red" disabled>Annuler</a>
+        </div> <!-- div.contol-container -->
       </div>
     </div>
+  </footer>
 
+  <!--  Scripts--> 
+  <script src="https://use.fontawesome.com/940c48a510.js"></script><!-- Latest fontawesome -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script><!-- Jquery -->     
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script> <!-- Signature Pad Librairy -->
+  <!-- Boostrap JS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <footer class="page-footer orange">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Réservation</h5>
-            <p class="grey-text text-lighten-4">Une réservation en cours à la station <span id="station-name">Porte-Mayo</span></p>
-            <p class="grey-text text-lighten-4">La réservation expirera dans <span id="minutes-remaining">12</span> mn et <span id="secondes-remaining">39</span>s</p>
-            <div class="contol-container ">
-              <a class="waves-effect waves-light btn red" disabled>Annuler</a>
-            </div> <!-- div.contol-container -->
-          </div>
-        </div>
-      </footer>
+  <script src="js/materialize/materialize.js"></script><!-- Materialize -->
+  <script src="js/materialize/init.js"></script><!-- Materialize Init -->
+  <script src="slider/slider.js"></script><!-- Slider -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ8nyVuNJ_C3E2I5XDluKaxHGSbSlOKeo"></script><!-- Google Map API call -->
+  <script src="js/velocity/velocity_init_function.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_map.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_settings.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_stations.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_page_objects.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_signature_pad.js"></script><!-- Velocity -->
+   <script src="js/velocity/velocity_reservation.js"></script><!-- Velocity -->
+  <script>
+    $(document).ready(function(){
+      runSlider();
+      velocityRun();
+      signatureScript();
+      $('.modal').modal();
+    })
+  </script>
 
-      <!--  Scripts--> 
-      <script src="https://use.fontawesome.com/940c48a510.js"></script><!-- Latest fontawesome -->
-      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script><!-- Jquery -->     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script> <!-- Signature Pad Librairy -->
-      <!-- Boostrap JS-->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-      <script src="js/materialize/materialize.js"></script><!-- Materialize -->
-      <script src="js/materialize/init.js"></script><!-- Materialize Init -->
-      <script src="slider/slider.js"></script><!-- Slider -->
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ8nyVuNJ_C3E2I5XDluKaxHGSbSlOKeo"></script><!-- Google Map API call -->
-      <script src="js/velocity/velocity_init_function.js"></script><!-- Velocity -->
-      <script src="js/velocity/velocity_map.js"></script><!-- Velocity -->
-      <script src="js/velocity/velocity_settings.js"></script><!-- Velocity -->
-      <script src="js/velocity/velocity_stations.js"></script><!-- Velocity -->
-      <script src="js/velocity/velocity_page_objects.js"></script><!-- Velocity -->
-      <script>
-        $(document).ready(function(){
-          runSlider();
-          velocityRun();
-          $('.modal').modal();
-        })
-      </script>
-
-    </body>
-    </html>
+</body>
+</html>
 
 <!-- 
 <div class="contol-container center-align">

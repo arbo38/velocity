@@ -18,9 +18,6 @@ const velibMap = {
 			    map.setCenter(marker.getPosition());
 			    stationsHandler.stationSelected(station);
 			    // currentStation = station; => passé dans stationsHandler.statationSelected.done
-			    $(".signature-canva").hide();
-			    $("#btn-confirmer").hide();
-			    $("#btn-reserver").show();
 			});
 		marker.setMap(map);
 

@@ -45,6 +45,9 @@
 .info-station-titles{
 	width: 40%;
 }
+.info-reservation-titles{
+	width: 30%;
+}
 
 .label{
 	font-size: 14px;
@@ -70,3 +73,19 @@ div#info-station-action-btn{
 	position: absolute;
 	bottom: -28px;
 }
+
+#signature-canvas-container{
+	position: relative;
+	margin-top: 15px;
+}
+
+div#signature-action-btn{
+	position: absolute;
+	bottom: 0px;
+	right: -15px;
+}
+
+.info-reservation{
+	text-transform: lowercase;
+}
+

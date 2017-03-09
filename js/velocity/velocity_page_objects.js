@@ -7,7 +7,7 @@ const informationStation = {
 		this.setCapacity();
 		this.setAvailableBikes();
 		this.setAvailableStands();
-		this.setReservationButton();
+		this.enableActionButton(true);
 	},
 	setName(){
 		$("#info-station-name").text(currentStation.name.split("-")[1]);
@@ -62,22 +62,50 @@ const informationStation = {
 			$("#info-station-available-stands").addClass('label label-danger');
 		}
 	},
+	enableActionButton(param){
+		if(param === true){
+			if(currentStation.available_bikes > 0){
+				$("#open-reservation-panel-btn").removeAttr('disabled');
+			}
+		}
+		else{
+			$("#open-reservation-panel-btn").attr('disabled');
+		}
+	},
 	actionButtonAction(type){
 		if(type === true){
 			$("#info-station-action-btn").show();
 		}
 		else{
 			$("#info-station-action-btn")
-				.hide()
-				.removeClass('active');
+			.hide()
+			.removeClass('active');
 		}
 	}, 
 	actionButtonListener(type){
-		$("#reservation-btn").on("click", function(){ // Cacher le bouton d'action
+		$("#info-station-action-btn").on("click", function(){ // Cacher le bouton d'action
 			informationStation.actionButtonAction(false);
+			informationReservation.set();
 		});
 		$("#close-reservation-panel").on("click", function(){ // Afficher le bouton d'action
 			informationStation.actionButtonAction(true);
 		});
 	},
+};
+
+const informationReservation = {
+	set(){
+		this.setName();
+		this.setAddress();
+		this.setValidity()
+	},
+	setName(){
+		$("#info-reservation-name").text(currentStation.name.split("-")[1]);
+	},
+	setAddress(){
+		$("#info-reservation-address").text(currentStation.address);
+	},
+	setValidity(){
+		$("#info-reservation-validity").text(`${settings.reservationValidity}mn`);
+	}
 }

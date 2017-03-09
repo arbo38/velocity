@@ -7,3 +7,7 @@ const workingURL = "https://api.jcdecaux.com/vls/v1/stations?contract=Paris&apiK
 let map;
 let currentStation = {}; 
 var countdownId;
+
+const settings = {
+	reservationValidity: 20,
+}
