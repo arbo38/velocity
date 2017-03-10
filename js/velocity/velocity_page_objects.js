@@ -72,32 +72,48 @@ const informationStation = {
 			$("#open-reservation-panel-btn").attr('disabled');
 		}
 	},
-	actionButtonAction(type){
-		if(type === true){
+	actionButtonAction(show){
+		if(show === true){
 			$("#info-station-action-btn").show();
 		}
 		else{
-			$("#info-station-action-btn")
-			.hide()
-			.removeClass('active');
+			if($("#info-station-action-btn").attr("disabled") !== "disabled"){
+				$("#info-station-action-btn")
+					.hide()
+					.removeClass('active');
+					informationReservation.set();
+			}
 		}
-	}, 
-	actionButtonListener(type){
-		$("#info-station-action-btn").on("click", function(){ // Cacher le bouton d'action
+	}
+};
+
+const setListeners = { // called by init_function / velocityRun()
+	set(){
+		this.actionButtonListener();
+		this.cancelReservationButtonListener();
+	},
+	actionButtonListener(){
+		$("#open-reservation-panel-btn").on("click", function(){ // Cacher le bouton d'action
 			informationStation.actionButtonAction(false);
-			informationReservation.set();
+			
 		});
 		$("#close-reservation-panel").on("click", function(){ // Afficher le bouton d'action
 			informationStation.actionButtonAction(true);
 		});
 	},
-};
+	cancelReservationButtonListener(){
+		$("#reservation-cancel-button").on("click", function(){ // Afficher le bouton d'action
+			reservationHandler.cancel();
+			cardReveal.hide();
+		});
+	}
+}
 
 const informationReservation = {
 	set(){
 		this.setName();
 		this.setAddress();
-		this.setValidity()
+		this.setValidity();
 	},
 	setName(){
 		$("#info-reservation-name").text(currentStation.name.split("-")[1]);
@@ -107,5 +123,63 @@ const informationReservation = {
 	},
 	setValidity(){
 		$("#info-reservation-validity").text(`${settings.reservationValidity}mn`);
+	}
+	
+}
+
+const footerReservationDisplay = {
+	status: {
+		reservation: "Une réservation en cours à la station",
+		noReservation: "Aucune réservation en cours",
+	},
+	set(reservation){
+		this.setStatus(reservation);
+		this.setValidity(reservation);
+		this.setCancelButton(reservation);
+	},
+	setStatus(reservation){
+		if(reservation === true){
+			$("#reservation-status").text(`${footerReservationDisplay.status.reservation} ${sessionStorage.reservedStationName}`);
+			console.log("test");
+		}
+		else{
+			$("#reservation-status").text(`${footerReservationDisplay.status.noReservation}`);
+			console.log("Réservation status cleared")
+		}
+	},
+	setValidity(reservation){
+		if(reservation === true){
+			$("#countdown-status").text(`La réservation expirera dans ${reservationHandler.remainingMinutes}mn et ${reservationHandler.remainingSeconds}s`);
+		}
+		else{
+			$("#countdown-status").text(" ");
+			console.log("Validity cleared");
+		}
+	},
+	setCancelButton(reservation){
+		if(reservation === true){
+			$("#reservation-cancel-button").removeAttr(`disabled`);
+		}
+		else{
+			$("#reservation-cancel-button").attr(`disabled`, true);
+			console.log("cancel button disabled");
+		}
+	}
+}
+
+const cardReveal = {
+	show(){
+
+	},
+	hide(){ // called by page_objects / setListeners.cancelReservationButtonListener
+		$('.card-reveal').velocity(
+			{translateY: 0}, {
+				duration: 225,
+				queue: false,
+				easing: 'easeInOutQuad',
+				complete: function() { $(this).css({ display: 'none'}); }
+			}
+		);
+		informationStation.actionButtonAction(true);
 	}
 }

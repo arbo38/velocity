@@ -9,5 +9,5 @@ let currentStation = {};
 var countdownId;
 
 const settings = {
-	reservationValidity: 20,
+	reservationValidity: 0.2,
 }

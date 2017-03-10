@@ -32,9 +32,7 @@ function signatureScript(){
 	    if (signaturePad.isEmpty()) {
 	        alert("Merci de signer avant de valider");
 	    } else {
-	    	//const data = signaturePad.toData();
-	    	//console.log(data);
-	        //window.open(signaturePad.toDataURL());
+	    	reservationHandler.create();
 	        console.log("Saved");
 	    }
 	});
