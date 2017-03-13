@@ -19,7 +19,7 @@ function signatureScript(){
 	    canvas.getContext("2d").scale(ratio, ratio);
 	}
 
-	window.onresize = resizeCanvas;
+	//window.onresize = resizeCanvas;
 	//resizeCanvas();
 
 	signaturePad = new SignaturePad(canvas);
@@ -30,6 +30,7 @@ function signatureScript(){
 
 	saveButton.on("click", function (event) {
 	    if (signaturePad.isEmpty()) {
+	    	console.log("reseigner signature");
 	        alert("Merci de signer avant de valider");
 	    } else {
 	    	reservationHandler.create();

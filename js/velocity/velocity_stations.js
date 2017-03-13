@@ -1,7 +1,7 @@
 const stationsHandler = {
 	requestStations(){
 		$.ajax({
-			url: reqListeStationContrat,
+			url: stationsFromContract,
 			type: 'GET',
 			dataType: 'json',
 		})
@@ -9,7 +9,7 @@ const stationsHandler = {
 			console.log(data);
 
 			data.forEach(function(station){
-				velibMap.makeMarker(station);
+				velocityController.googleMap.makeMarker(station);
 			});
 
 		})
@@ -24,16 +24,16 @@ const stationsHandler = {
 	stationSelected(station){
 		console.log(station);
 		const stationNumber = Number(station.name.split("-")[0]);
-		const reqListeInfoStation = `https://api.jcdecaux.com/vls/v1/stations/${stationNumber}?contract=${contrat}&apiKey=${apiKey}`;
+		const stationFromNumber = `https://api.jcdecaux.com/vls/v1/stations/${stationNumber}?contract=${contrat}&apiKey=${apiKey}`;
 		$.ajax({
-			url: reqListeInfoStation,
+			url: stationFromNumber,
 			type: 'GET',
 			dataType: 'json',
 		})
 		.done(function(station) {
 			currentStation = station;
 			console.log(`Requested Station is ${station}`);
-			informationStation.set();
+			velocityController.stations.htmlStationInformation();
 		});
 	},
 };

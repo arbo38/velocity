@@ -1,7 +1,8 @@
 
 function velocityRun(){
-	velibMap.init(48.847481, 2.399398, "google-map", 18);
-	stationsHandler.requestStations();
+	velocityController.googleMap.initialize();
+	velocityController.stations.getAllStations();
+	velocityController.reservations.check();
 	setListeners.set();
-	reservationHandler.check();
+	
 }

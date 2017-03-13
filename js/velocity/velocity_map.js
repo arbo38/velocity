@@ -16,16 +16,16 @@ const velibMap = {
 			    //map.setZoom(20);
 			    console.log(station);
 			    map.setCenter(marker.getPosition());
-			    stationsHandler.stationSelected(station);
+			    velocityController.stations.getStation(station);
 			    // currentStation = station; => passé dans stationsHandler.statationSelected.done
 			});
 		marker.setMap(map);
 
 	},
 	init(lat, lng, canvas, zoom){
-		this.center = new google.maps.LatLng(lat, lng);
-		this.canvas = document.getElementById(canvas);
-		this.options = {center: this.center, zoom: zoom};
+		this.center = new google.maps.LatLng(velibMapSettings.lat, velibMapSettings.lng);
+		this.canvas = document.getElementById(velibMapSettings.containerId);
+		this.options = {center: this.center, zoom: velibMapSettings.zoom};
 		this.map();
 	}
 }

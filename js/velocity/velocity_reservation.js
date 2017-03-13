@@ -13,15 +13,16 @@ const reservationHandler = {
 				this.remainingTime = Math.floor((Number(sessionStorage.reservationEndTime) - currentTime) / 1000); // Calcul du temps restant
 				this.setTime(false); // Recalcul des minutes et secondes restantes
 				this.countdown();
+				velocityController.reservations.htmlReservationDisplay(true);
 			}
 			else{ // Si elle n'est plus valide
 				console.log("Cette réservation est expirée");
 				sessionStorage.reservationState = false;
-				footerReservationDisplay.set(false);  // Ne pas afficher de réservation
+				velocityController.reservations.htmlReservationDisplay(false);  // Ne pas afficher de réservation
 			}
 		}
 		else{ // Si il n'y pas de réservation
-			footerReservationDisplay.set(false);  // Ne pas afficher de réservation
+			velocityController.reservations.htmlReservationDisplay(false);   // Ne pas afficher de réservation
 			console.log("Il n'y a pas de réservation en cours.");
 		}
 		
@@ -30,7 +31,7 @@ const reservationHandler = {
 		this.reservationTimeStamp = new Date().getTime();
 		this.store();
 		this.setTime(true);
-		this.display();
+		velocityController.reservations.htmlReservationDisplay(true);
 		this.countdown();
 		
 	},
@@ -44,12 +45,12 @@ const reservationHandler = {
 		sessionStorage.reservationState = true;
 		sessionStorage.reservedStationName = currentStation.name.split("-")[1];
 		sessionStorage.reservationStartTime = this.reservationTimeStamp;
-		sessionStorage.reservationEndTime = this.reservationTimeStamp + (settings.reservationValidity * 60 * 1000);;
-		sessionStorage.reservationRemainingTime = settings.reservationValidity * 60;
+		sessionStorage.reservationEndTime = this.reservationTimeStamp + (settings.reservationValidity * 60 * 1000);
+		sessionStorage.reservationRemainingTime = Math.floor(settings.reservationValidity * 60);
 	},
 	setTime(init){
 		if(init === true){
-			this.remainingTime = Math.floor(settings.reservationValidity * 60);
+			this.remainingTime = Number(sessionStorage.reservationRemainingTime); 
 		}
 		reservationHandler.remainingMinutes = Math.floor(reservationHandler.remainingTime / 60);
 		reservationHandler.remainingSeconds = reservationHandler.remainingTime - (reservationHandler.remainingMinutes * 60);
@@ -60,11 +61,11 @@ const reservationHandler = {
 			console.log("countdown cleared");
 		}
 		if(this.remainingTime > 0){
-			footerReservationDisplay.setValidity(true);
+			//footerReservationDisplay.setValidity(true);
 			countdownId = setInterval(function(){
 				if(reservationHandler.remainingTime <= 0){
 					clearInterval(countdownId);
-					footerReservationDisplay.set(false);
+					velocityController.reservations.htmlReservationDisplay(false);
 					console.log("countdown cleared and footerReservationDisplay set to false");
 				}
 				else{
@@ -72,12 +73,13 @@ const reservationHandler = {
 					reservationHandler.remainingTime--;
 					sessionStorage.reservationRemainingTime = reservationHandler.remainingTime;
 					reservationHandler.setTime(false); // not initial setTime but actualisation 
-					reservationHandler.display();
+					velocityController.reservations.htmlReservationDisplay(true);
 				}
+				console.log(reservationHandler.remainingTime);
 			}, 1000);
 		}
 	},
-	display(){
+	/*display(){
 		footerReservationDisplay.set(true)
-	}
+	}*/
 }

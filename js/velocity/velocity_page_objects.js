@@ -95,7 +95,7 @@ const setListeners = { // called by init_function / velocityRun()
 	actionButtonListener(){
 		$("#open-reservation-panel-btn").on("click", function(){ // Cacher le bouton d'action
 			informationStation.actionButtonAction(false);
-			signatureScript();
+			//signatureScript();
 			
 		});
 		$("#close-reservation-panel").on("click", function(){ // Afficher le bouton d'action
@@ -141,7 +141,6 @@ const footerReservationDisplay = {
 	setStatus(reservation){
 		if(reservation === true){
 			$("#reservation-status").text(`${footerReservationDisplay.status.reservation} ${sessionStorage.reservedStationName}`);
-			console.log("test");
 		}
 		else{
 			$("#reservation-status").text(`${footerReservationDisplay.status.noReservation}`);
