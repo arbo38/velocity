@@ -5,7 +5,26 @@ const reservationHandler = {
 	remainingMinutes: "",
 	remainingSeconds: "",
 	check(){
-		this.countdown();
+		let currentTime = new Date().getTime();
+		if(sessionStorage.reservationState == "true"){ // Test si une réservation a été effectué lors de cette session
+			console.log("Une réservation a déjà été effectuée lors de cette cession");
+			if(currentTime < Number(sessionStorage.reservationEndTime)){ // Test si la reservation est toujours valide
+				console.log("Cette réservation est toujours en cours");
+				this.remainingTime = Math.floor((Number(sessionStorage.reservationEndTime) - currentTime) / 1000); // Calcul du temps restant
+				this.setTime(false); // Recalcul des minutes et secondes restantes
+				this.countdown();
+			}
+			else{ // Si elle n'est plus valide
+				console.log("Cette réservation est expirée");
+				sessionStorage.reservationState = false;
+				footerReservationDisplay.set(false);  // Ne pas afficher de réservation
+			}
+		}
+		else{ // Si il n'y pas de réservation
+			footerReservationDisplay.set(false);  // Ne pas afficher de réservation
+			console.log("Il n'y a pas de réservation en cours.");
+		}
+		
 	},
 	create(){
 		this.reservationTimeStamp = new Date().getTime();
@@ -19,7 +38,7 @@ const reservationHandler = {
 		sessionStorage.reservationState = false;
 		reservationHandler.remainingTime = 0;
 		footerReservationDisplay.set(false);
-		this.countdown(true);
+		this.countdown(true); // Clear countdown
 	},
 	store(){
 		sessionStorage.reservationState = true;

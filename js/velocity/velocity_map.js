@@ -26,5 +26,6 @@ const velibMap = {
 		this.center = new google.maps.LatLng(lat, lng);
 		this.canvas = document.getElementById(canvas);
 		this.options = {center: this.center, zoom: zoom};
+		this.map();
 	}
 }

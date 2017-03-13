@@ -95,6 +95,7 @@ const setListeners = { // called by init_function / velocityRun()
 	actionButtonListener(){
 		$("#open-reservation-panel-btn").on("click", function(){ // Cacher le bouton d'action
 			informationStation.actionButtonAction(false);
+			signatureScript();
 			
 		});
 		$("#close-reservation-panel").on("click", function(){ // Afficher le bouton d'action
@@ -180,6 +181,6 @@ const cardReveal = {
 				complete: function() { $(this).css({ display: 'none'}); }
 			}
 		);
-		informationStation.actionButtonAction(true);
+		informationStation.actionButtonAction(true); // Afficher le bouton de Réservation
 	}
 }
