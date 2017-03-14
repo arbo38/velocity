@@ -84,11 +84,11 @@
               <!-- ********************************************* -->
               <div class="card-image card-table">
                 <div class="fixed-action-btn" id="info-station-action-btn">
-                  <a class="btn-floating btn-large green activator tooltipped" id="open-reservation-panel-btn" data-position="right" data-delay="50" data-tooltip="Réserver"  disabled >
+                  <a id="open-reservation-panel-btn" class="btn-floating btn-large green activator tooltipped"  data-position="right" data-delay="50" data-tooltip="Réserver"  disabled >
                     <i class="material-icons">navigation</i>
                   </a>
                   <ul>
-                    <li><a class="btn-floating blue tooltipped" data-position="right" data-delay="50" data-tooltip="Me localiser"><i class="material-icons">my_location</i></a></li>
+                    <li><a id="locate-btn" class="btn-floating blue tooltipped" data-position="right" data-delay="50" data-tooltip="Me localiser"><i class="material-icons">my_location</i></a></li>
                   </ul>
                 </div>
                 <table class="white striped">
@@ -136,8 +136,8 @@
             <!-- Card reveal : Finalisationd de la reservation -->
             <!-- ********************************************* -->
 
-            <div class="card-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Signez pour finaliser la résevation">
-              <span class="card-title grey-text text-darken-4">Votre réservation<i class="material-icons right" id="close-reservation-panel">close</i></span>
+            <div class="card-reveal tooltipped" data-position="top" data-delay="50" data-tooltip="Signez pour finaliser la résevation">
+              <span class="card-title grey-text text-darken-4">Votre réservation<i id="close-reservation-panel-btn" class="material-icons right">close</i></span>
               <table class="white striped">
                 <tbody id="testbody">
                   <tr>
@@ -165,12 +165,12 @@
 
               </canvas>
               <div class="fixed-action-btn" id="signature-action-btn">
-                <a id="save-reservation" class="btn-floating btn-large green tooltipped" data-position="right" data-delay="50" data-tooltip="Confirmer la réservation">
+                <a id="confirmation-reservation-btn" class="btn-floating btn-large green tooltipped" data-position="right" data-delay="50" data-tooltip="Confirmer la réservation">
                   <i class="material-icons">done</i>
                 </a>
                 <ul>
                  <li>
-                   <a class="btn-floating orange tooltipped" id="clear-canvas" data-position="right" data-delay="50" data-tooltip="Effacer la signature">
+                   <a id="clear-canvas" class="btn-floating orange tooltipped"  data-position="right" data-delay="50" data-tooltip="Effacer la signature">
                      <i class="material-icons">fast_rewind</i>
                    </a>
                  </li>
@@ -208,7 +208,7 @@
         <p id="reservation-status"class="grey-text text-lighten-4" >Une réservation en cours à la station <span id="station-name">Porte-Mayo</span></p>
         <p id="countdown-status" class="grey-text text-lighten-4"></p>
         <div class="contol-container ">
-          <a id="reservation-cancel-button" class="waves-effect waves-light btn red" disabled>Annuler</a>
+          <a id="cancel-reservation-btn" class="waves-effect waves-light btn red" disabled>Annuler</a>
         </div> <!-- div.contol-container -->
       </div>
     </div>
@@ -230,16 +230,17 @@
   <script src="js/velocity/velocity_map.js"></script><!-- Velocity -->
   <script src="js/velocity/velocity_settings.js"></script><!-- Velocity -->
   <script src="js/velocity/velocity_stations.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_stations_html.js"></script><!-- Velocity -->
   <script src="js/velocity/velocity_page_objects.js"></script><!-- Velocity -->
   <script src="js/velocity/velocity_signature_pad.js"></script><!-- Velocity -->
-   <script src="js/velocity/velocity_reservation.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_reservation.js"></script><!-- Velocity -->
+  <script src="js/velocity/velocity_reservation_html.js"></script><!-- Velocity -->
   <script src="js/velocity/velocity_controller.js"></script><!-- Velocity -->
   <script src="js/velocity/velocity_buttons.js"></script><!-- Velocity -->
   <script>
     $(document).ready(function(){
       runSlider();
       velocityRun();
-      signatureScript();
       $('.modal').modal();
     })
   </script>

@@ -31,6 +31,8 @@ const velocityController = {
 			this.htmlReservationDisplay(true); // Display information in the footer
 			reservationHandler.countdown();
 			cardReveal.hide(); // Close the reservation panel
+			velocityController.reservations.clearSignatureCanvas();
+			openReservationPanel.show();
 		},
 		cancel(){
 			reservationHandler.cancel(); // calls to .htmlReservationDisplay()
@@ -39,7 +41,7 @@ const velocityController = {
 			cardReveal.hide();
 		},
 		clearSignatureCanvas(){
-
+			signaturePad.clear();
 		},
 		htmlReservationDisplay(reservation){ // reservation = true (there is a reservation) or false
 			footerReservationDisplay.set(reservation); // Display reservation information and countdown in the page footer

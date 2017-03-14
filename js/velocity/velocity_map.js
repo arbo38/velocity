@@ -17,6 +17,7 @@ const velibMap = {
 			    console.log(station);
 			    map.setCenter(marker.getPosition());
 			    velocityController.stations.getStation(station);
+			    velocityController.reservations.closeReservationCard();
 			    // currentStation = station; => passé dans stationsHandler.statationSelected.done
 			});
 		marker.setMap(map);

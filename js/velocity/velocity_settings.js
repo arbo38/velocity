@@ -3,7 +3,8 @@
 
 let map;
 let currentStation = {}; 
-var countdownId;
+let countdownId;
+let signaturePad;
 
 // Settings
 
@@ -21,5 +22,5 @@ const velibMapSettings = {
 	lat: 48.847481,
 	lng: 2.399398,
 	containerId: "google-map",
-	zoom: 18
+	zoom: 16
 }
