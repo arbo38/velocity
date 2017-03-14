@@ -32,10 +32,12 @@ const velocityController = {
 			reservationHandler.countdown();
 			cardReveal.hide(); // Close the reservation panel
 			velocityController.reservations.clearSignatureCanvas();
-			openReservationPanel.show();
+			openReservationPanel.show(); // Réaffichage du bouton open-reservation-panel-btn
+			cancelReservation.enable();
 		},
 		cancel(){
 			reservationHandler.cancel(); // calls to .htmlReservationDisplay()
+			cancelReservation.disable();
 		},
 		closeReservationCard(){ // @ velocity_page_objects/cardReveal
 			cardReveal.hide();

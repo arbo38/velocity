@@ -6,6 +6,24 @@
  * Made By MaterializeCSS.com
  */
 
+ h4{
+ 	font-size: 28px;
+ }
+
+ .row{
+ 	margin: 0px 0 0px 0;
+ }
+
+ .col.s4.card{
+ 	margin: 0;
+ 	height: 460px;
+ }
+
+ul li a:hover{
+ 	text-decoration: none !important;
+ 	color: white;
+ }
+
 .icon-block {
   padding: 0 15px;
 }
@@ -15,7 +33,7 @@
 
 #intro-banner{
 	margin: 0 !important;
-	padding: 20px;
+	padding: 10px;
 }
 
 #intro-banner h4{
@@ -33,7 +51,7 @@
 }
 
 #google-map{
-	height: 400px;
+	height: 460px;
 	margin: 0;
 	padding: 0;
 }
@@ -89,3 +107,6 @@ div#signature-action-btn{
 	text-transform: lowercase;
 }
 
+footer.page-footer{
+	padding-bottom: 40px;
+}

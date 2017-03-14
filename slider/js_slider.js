@@ -1,7 +1,7 @@
 
 const sliderSetting = {
-	autoplay: false,
-	ratio: 3/4, // Exprime la hauteur du slider comme fraction de sa largeur
+	autoplay: true,
+	ratio: 3/6, // Exprime la hauteur du slider comme fraction de sa largeur
 	duration: 2000, // Durée en milisecondes de présentation de chaque slide
 	displayControls: true, // Défini si les boutons de controls du slider sont visibles
 	startingSlide: 0,

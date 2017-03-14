@@ -88,9 +88,9 @@ const cancelReservation = {
 		$(cancelReservation.html).attr(`disabled`, true);
 	},
 	listeners(){ // on click cancel reservation and hide reservation panel
-		$("#reservation-cancel-button").on("click", function(){ // Afficher le bouton d'action
+		$(cancelReservation.html).on("click", function(){ 
 			velocityController.reservations.cancel();
-			velocityController.reservations.closeReservationCard();
+			velocityController.reservations.closeReservationCard();	
 		});
 	},
 	init(){
