@@ -17,21 +17,32 @@ const velocityController = {
 			stationsHandler.stationSelected(station); // calls to VC.stations.htmlStationInformation()
 		},
 		htmlStationInformation(){ // called by stationsHandler.stationSelected @ velocity_stations.js
-			informationStation.set(); // uses global variable currentStation @ @ velocity_settings.js/currentStation
+			informationStation.set(); // uses global variable currentStation @ velocity_settings.js/currentStation
 		}
 	},
 	reservations: { // velocity_reservation.js/reservationHandler
-		check(){ // called by velocityRun() @ velocity_init_function.js
+		check(){ // called by velocityRun() @ velocity_init_function.js on page load
 			reservationHandler.check(); // calls to .htmlReservationDisplay()
 		},
 		create(){
-			reservationHandler.create(); // calls to .htmlReservationDisplay()
+			reservationHandler.reservationTime.reservationTimeStamp = new Date().getTime();
+			reservationHandler.store(); // Store via webstorage reservation information
+			reservationHandler.setTime(true); // true is for a new reservation
+			this.htmlReservationDisplay(true); // Display information in the footer
+			reservationHandler.countdown();
+			cardReveal.hide(); // Close the reservation panel
 		},
 		cancel(){
 			reservationHandler.cancel(); // calls to .htmlReservationDisplay()
 		},
+		closeReservationCard(){ // @ velocity_page_objects/cardReveal
+			cardReveal.hide();
+		},
+		clearSignatureCanvas(){
+
+		},
 		htmlReservationDisplay(reservation){ // reservation = true (there is a reservation) or false
-			footerReservationDisplay.set(reservation);
+			footerReservationDisplay.set(reservation); // Display reservation information and countdown in the page footer
 		}
 	}
 }

@@ -90,7 +90,7 @@ const informationStation = {
 const setListeners = { // called by init_function / velocityRun()
 	set(){
 		this.actionButtonListener();
-		this.cancelReservationButtonListener();
+		cancelReservation.init();
 	},
 	actionButtonListener(){
 		$("#open-reservation-panel-btn").on("click", function(){ // Cacher le bouton d'action
@@ -102,12 +102,14 @@ const setListeners = { // called by init_function / velocityRun()
 			informationStation.actionButtonAction(true);
 		});
 	},
+	/*
 	cancelReservationButtonListener(){
 		$("#reservation-cancel-button").on("click", function(){ // Afficher le bouton d'action
 			reservationHandler.cancel();
 			cardReveal.hide();
 		});
 	}
+	*/
 }
 
 const informationReservation = {
@@ -149,7 +151,7 @@ const footerReservationDisplay = {
 	},
 	setValidity(reservation){
 		if(reservation === true){
-			$("#countdown-status").text(`La réservation expirera dans ${reservationHandler.remainingMinutes}mn et ${reservationHandler.remainingSeconds}s`);
+			$("#countdown-status").text(`La réservation expirera dans ${reservationHandler.reservationTime.remainingMinutes}mn et ${reservationHandler.reservationTime.remainingSeconds}s`);
 		}
 		else{
 			$("#countdown-status").text(" ");
@@ -172,14 +174,18 @@ const cardReveal = {
 
 	},
 	hide(){ // called by page_objects / setListeners.cancelReservationButtonListener
-		$('.card-reveal').velocity(
-			{translateY: 0}, {
-				duration: 225,
-				queue: false,
-				easing: 'easeInOutQuad',
-				complete: function() { $(this).css({ display: 'none'}); }
-			}
-		);
-		informationStation.actionButtonAction(true); // Afficher le bouton de Réservation
+		if($('.card-reveal').css("display") != "none"){
+			$('.card-reveal').velocity(
+				{translateY: 0}, {
+					duration: 225,
+					queue: false,
+					easing: 'easeInOutQuad',
+					complete: function() { $(this).css({ display: 'none'}); }
+				}
+			);
+			informationStation.actionButtonAction(true); // Afficher le bouton de Réservation
+		}
+		
+		
 	}
 }

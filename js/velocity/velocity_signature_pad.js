@@ -33,7 +33,7 @@ function signatureScript(){
 	    	console.log("reseigner signature");
 	        alert("Merci de signer avant de valider");
 	    } else {
-	    	reservationHandler.create();
+	    	velocityController.reservations.create();
 	        console.log("Saved");
 	    }
 	});
