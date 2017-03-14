@@ -66,6 +66,9 @@ const informationStation = {
 			if(currentStation.available_bikes > 0){
 				openReservationPanel.enable();
 			}
+			else{
+			openReservationPanel.disable();
+			}
 		}
 		else{
 			openReservationPanel.disable();
