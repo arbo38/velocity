@@ -114,8 +114,6 @@ const jsSlider = {
 	}
 }
 
-
-
 function jsSliderRun(){
 	jsSlider.init();
 }

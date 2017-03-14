@@ -32,7 +32,6 @@ const footerReservationDisplay = {
 		}
 		else{
 			$("#reservation-status").text(`${footerReservationDisplay.status.noReservation}`);
-			console.log("Réservation status cleared")
 		}
 	},
 	setValidity(reservation){
@@ -41,7 +40,6 @@ const footerReservationDisplay = {
 		}
 		else{
 			$("#countdown-status").text(" ");
-			console.log("Validity cleared");
 		}
 	},
 	setCancelButton(reservation){
@@ -50,7 +48,6 @@ const footerReservationDisplay = {
 		}
 		else{
 			$("#reservation-cancel-button").attr(`disabled`, true);
-			console.log("cancel button disabled");
 		}
 	}
 }

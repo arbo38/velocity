@@ -25,7 +25,6 @@ const openReservationPanel = {
 	},
 	listeners(){
 		$(openReservationPanel.html).on('click', function(){
-			console.log("click on openReservationPanel");
 			openReservationPanel.hide();
 		});
 	},
@@ -39,7 +38,6 @@ const closeReservationPanel = {
 	html: "",
 	listeners(){
 		$(closeReservationPanel.html).on('click', function(){
-			console.log("click on closeReservationPanel");
 			openReservationPanel.show();
 			velocityController.reservations.clearSignatureCanvas();
 		});
@@ -68,11 +66,9 @@ const confirmReservation = {
 	listeners(){ // on click create a new reservation
 		$(confirmReservation.html).on("click", function (event) {
 		    if (signaturePad.isEmpty()) {
-		    	console.log("reseigner signature");
 		        alert("Merci de signer avant de valider");
 		    } else {
 		    	velocityController.reservations.create();
-		        console.log("Saved");
 		    }
 		});
 	},

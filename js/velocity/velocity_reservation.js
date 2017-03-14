@@ -9,31 +9,24 @@ const reservationHandler = {
 	check(create){
 		let currentTime = new Date().getTime();
 		if(sessionStorage.reservationState == "true"){ // Test si une réservation a été effectué lors de cette session
-			console.log("Une réservation a déjà été effectuée lors de cette cession");
 			if(currentTime < Number(sessionStorage.reservationEndTime)){ // Test si la reservation est toujours valide
 				if(create === true){ // if check() called by new reservation from velocityController.reservations.create(), this reservation must be terminated
-					console.log("il y avait une reservation, il faut l'annuler");
 					velocityController.reservations.cancel();
 				} else{
-				console.log("Cette réservation est toujours en cours");
 				this.reservationTime.remainingTime = Math.floor((Number(sessionStorage.reservationEndTime) - currentTime) / 1000); // Calcul du temps restant
 				this.setTime(false); // Recalcul des minutes et secondes restantes
 				this.countdown();
 				velocityController.reservations.htmlReservationDisplay(true);
 				cancelReservation.enable();
-				console.log('cancelReservation enabled');
 				}
 			}
 			else{ // Si elle n'est plus valide
-				console.log("Cette réservation est expirée");
 				velocityController.reservations.cancel(); // Ne pas afficher de réservation
 			}
 		}
 		else{ // Si il n'y pas de réservation
 			velocityController.reservations.htmlReservationDisplay(false);   // Ne pas afficher de réservation
-			console.log("Il n'y a pas de réservation en cours.");
 		}
-		
 	},
 	cancel(){
 		sessionStorage.reservationState = false;
@@ -58,7 +51,6 @@ const reservationHandler = {
 	countdown(clear){
 		if(clear === true){
 			clearInterval(countdownId);
-			console.log("countdown cleared");
 		}
 		if(this.reservationTime.remainingTime > 0){
 			//footerReservationDisplay.setValidity(true);
@@ -66,16 +58,13 @@ const reservationHandler = {
 				if(reservationHandler.reservationTime.remainingTime <= 0){
 					clearInterval(countdownId);
 					velocityController.reservations.htmlReservationDisplay(false);
-					console.log("countdown cleared and footerReservationDisplay set to false");
 				}
 				else{
-					console.log(reservationHandler.reservationTime.remainingTime);
 					reservationHandler.reservationTime.remainingTime--;
 					sessionStorage.reservationRemainingTime = reservationHandler.reservationTime.remainingTime;
 					reservationHandler.setTime(false); // not initial setTime but actualisation 
 					velocityController.reservations.htmlReservationDisplay(true);
 				}
-				console.log(reservationHandler.reservationTime.remainingTime);
 			}, 1000);
 		}
 	},

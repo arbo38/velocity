@@ -1,4 +1,3 @@
-console.log("controller declared");
 
 const velocityController = {
 	googleMap: { // @ velocity_map.js/velibMap

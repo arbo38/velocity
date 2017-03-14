@@ -19,7 +19,6 @@ const velibMap = {
 			    velocityController.reservations.closeReservationCard();
 			});
 		marker.setMap(map);
-
 	},
 	locate(){
 		if(velibMapSettings.locate.geolocation){ // If settings OK to use user location
