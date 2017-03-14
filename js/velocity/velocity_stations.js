@@ -32,7 +32,9 @@ const stationsHandler = {
 		})
 		.done(function(station) {
 			currentStation = station;
-			console.log(`Requested Station is ${station}`);
+			console.log(currentStation);
+		})
+		.done(function(station) {
 			velocityController.stations.htmlStationInformation();
 		});
 	},

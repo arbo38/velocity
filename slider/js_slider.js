@@ -2,7 +2,7 @@
 const sliderSetting = {
 	autoplay: true,
 	ratio: 3/6, // Exprime la hauteur du slider comme fraction de sa largeur
-	duration: 2000, // Durée en milisecondes de présentation de chaque slide
+	duration: 5000, // Durée en milisecondes de présentation de chaque slide
 	displayControls: true, // Défini si les boutons de controls du slider sont visibles
 	startingSlide: 0,
 	sliderElements: {
@@ -110,6 +110,7 @@ const jsSlider = {
 		} else{
 			this.pause();
 		}
+		this.goToSlide(this.currentSlide);
 	}
 }
 

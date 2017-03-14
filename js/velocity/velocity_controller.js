@@ -7,6 +7,9 @@ const velocityController = {
 		},
 		makeMarker(station){ // uses data from API @ velocity_stations/stationsHandler.requestStations 
 			velibMap.makeMarker(station); // calls to VC.station.getStation()
+		},
+		locate(){
+			velibMap.locate();
 		}
 	},
 	stations: { // uses settings @ velocity_settings.js/stationsFromContract
@@ -21,26 +24,38 @@ const velocityController = {
 		}
 	},
 	reservations: { // velocity_reservation.js/reservationHandler
-		check(){ // called by velocityRun() @ velocity_init_function.js on page load
-			reservationHandler.check(); // calls to .htmlReservationDisplay()
+		check(create){ // called by velocityRun() @ velocity_init_function.js on page load
+			if(create === true){
+				reservationHandler.check(true);
+			} else{
+				reservationHandler.check(); // calls to .htmlReservationDisplay()
+			}
+			
 		},
 		create(){
+			velocityController.reservations.check(true);
+			currentStation.available_bikes--;
 			reservationHandler.reservationTime.reservationTimeStamp = new Date().getTime();
 			reservationHandler.store(); // Store via webstorage reservation information
 			reservationHandler.setTime(true); // true is for a new reservation
 			this.htmlReservationDisplay(true); // Display information in the footer
 			reservationHandler.countdown();
-			cardReveal.hide(); // Close the reservation panel
 			velocityController.reservations.clearSignatureCanvas();
 			openReservationPanel.show(); // Réaffichage du bouton open-reservation-panel-btn
 			cancelReservation.enable();
+			velocityController.reservations.closeReservationCard();
 		},
 		cancel(){
 			reservationHandler.cancel(); // calls to .htmlReservationDisplay()
 			cancelReservation.disable();
+			if(sessionStorage.reservedStationName == currentStation.name.split("-")[1]){
+				currentStation.available_bikes++;
+				velocityController.stations.htmlStationInformation();
+			}
 		},
 		closeReservationCard(){ // @ velocity_page_objects/cardReveal
 			cardReveal.hide();
+			velocityController.stations.htmlStationInformation();
 		},
 		clearSignatureCanvas(){
 			signaturePad.clear();

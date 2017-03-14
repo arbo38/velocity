@@ -53,10 +53,13 @@ const closeReservationPanel = {
 const locate = {
 	html: "",
 	listeners(){
-		// coming soon
+		$(locate.html).on("click", function (event) {
+		    velocityController.googleMap.locate();
+		});
 	},
 	init(){
 		this.html = $("#locate-btn");
+		this.listeners();
 	}
 }
 

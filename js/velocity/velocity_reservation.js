@@ -6,21 +6,27 @@ const reservationHandler = {
 		remainingMinutes: "",
 		remainingSeconds: "",
 	},
-	check(){
+	check(create){
 		let currentTime = new Date().getTime();
 		if(sessionStorage.reservationState == "true"){ // Test si une réservation a été effectué lors de cette session
 			console.log("Une réservation a déjà été effectuée lors de cette cession");
 			if(currentTime < Number(sessionStorage.reservationEndTime)){ // Test si la reservation est toujours valide
+				if(create === true){ // if check() called by new reservation from velocityController.reservations.create(), this reservation must be terminated
+					console.log("il y avait une reservation, il faut l'annuler");
+					velocityController.reservations.cancel();
+				} else{
 				console.log("Cette réservation est toujours en cours");
 				this.reservationTime.remainingTime = Math.floor((Number(sessionStorage.reservationEndTime) - currentTime) / 1000); // Calcul du temps restant
 				this.setTime(false); // Recalcul des minutes et secondes restantes
 				this.countdown();
 				velocityController.reservations.htmlReservationDisplay(true);
+				cancelReservation.enable();
+				console.log('cancelReservation enabled');
+				}
 			}
 			else{ // Si elle n'est plus valide
 				console.log("Cette réservation est expirée");
-				sessionStorage.reservationState = false;
-				velocityController.reservations.htmlReservationDisplay(false);  // Ne pas afficher de réservation
+				velocityController.reservations.cancel(); // Ne pas afficher de réservation
 			}
 		}
 		else{ // Si il n'y pas de réservation
@@ -29,15 +35,6 @@ const reservationHandler = {
 		}
 		
 	},
-	/*
-	create(){
-		this.reservationTime.reservationTimeStamp = new Date().getTime();
-		this.store();
-		this.setTime(true);
-		velocityController.reservations.htmlReservationDisplay(true);
-		this.countdown();
-		
-	},*/
 	cancel(){
 		sessionStorage.reservationState = false;
 		reservationHandler.reservationTime.remainingTime = 0;
@@ -82,7 +79,4 @@ const reservationHandler = {
 			}, 1000);
 		}
 	},
-	/*display(){
-		footerReservationDisplay.set(true)
-	}*/
 }
