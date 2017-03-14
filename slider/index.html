@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>arbo's Slider</title>
-	
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Js Slider</title>
 </head>
 <body>
-	
-	<div class="page_wrapper">
-		<div class="slider_container">
-			<img src="images/img_01.jpg" class="slide number_01" />
-			<img src="images/img_02.jpg" class="slide number_02"/>
-			<img src="images/img_03.jpg" class="slide number_03"/>
-			<img src="images/img_04.jpg" class="slide number_04"/>
-			<img src="images/img_05.jpg" class="slide number_05"/>
-		</div> <!-- div.slider_container -->
-		<div class="controls">
-			<button id="previous">Previous</button>
-			<button id="next">Next</button>
-		</div><!-- div.controls -->
-	</div> <!-- div.page_wrapper -->
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="slider.js"></script>
-	<script>
-		$(document).ready(function(){
-			run();
-		})
-	</script>
+	<div id= "slider-container" class="slider-container">
+		<ul id="slider">
+			<li class="slide showing">Slide 1</li> <!-- li.slide -->
+			<li class="slide">Slide 2</li> <!-- li.slide -->
+			<li class="slide">Slide 3</li> <!-- li.slide -->
+			<li class="slide">Slide 4</li> <!-- li.slide -->
+			<li class="slide">Slide 5</li> <!-- li.slide -->
+		</ul> <!-- ul#slides -->
+		<div id="control-container">
+			<button class="control" id="previous"><i id="previous-icone" class="fa fa-backward" aria-hidden="true"></i></button>
+			<button class="control" id="pause"><i id="pause-icone" class="fa fa-pause" aria-hidden="true"></i></button>
+			<button class="control" id="next"><i id="next-icone" class="fa fa-forward" aria-hidden="true"></i></button>
+		</div> <!-- div.controls-container -->
 
+	</div> <!-- div.slider-container -->
+	
+	
+	<script type="text/javascript" src="js/js_slider.js"></script>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			jsSliderRun();
+		});
+	</script>
+	<script src="https://use.fontawesome.com/940c48a510.js"></script>
 </body>
 </html>
+
+
