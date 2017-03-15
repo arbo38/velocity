@@ -7,6 +7,9 @@ const velocityController = {
 		makeMarker(station){ // uses data from API @ velocity_stations/stationsHandler.requestStations 
 			velibMap.makeMarker(station); // calls to VC.station.getStation()
 		},
+		showMarkersByLocation(stationsNumber){
+			velibMap.showMarkersByLocation(stationsNumber);
+		},
 		locate(){
 			velibMap.locate();
 		}
@@ -14,6 +17,9 @@ const velocityController = {
 	stations: { // uses settings @ velocity_settings.js/stationsFromContract
 		getAllStations(){ // called by function velocityRun() @ velocity_init_function.js
 			stationsHandler.requestStations(); // calls to VC.googleMap.makeMarker()
+		},
+		getStationsByLocation(location){
+			stationsHandler.getStationsByLocation(location); // calls to VC.googleMap.showMarkersByLocation()
 		},
 		getStation(station){
 			stationsHandler.stationSelected(station); // calls to VC.stations.htmlStationInformation()

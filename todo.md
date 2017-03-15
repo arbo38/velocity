@@ -2,10 +2,10 @@
 # Todo
 
 	- Améliorer le design de la page (couleurs, mise en page, taille des texts etc...)
-	- Implémenter la fonctionnalité "Me localiser"
 	- Implémenter le drag and drop avec refresh marker
 	- Implémenter de nouvelles icones de marker
 	
+	- Implémenter la fonctionnalité "Me localiser" / Done
 	- Remplacer tout les texts de substitution et placeholder de la page / Done
 	- Implementer le nouveau slider js_slider / Done
 	- Ajouter des boutons de control cliquable sur le slider / Done
