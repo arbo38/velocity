@@ -29,10 +29,10 @@ const velibMap = {
 			position: new google.maps.LatLng(station.position.lat, station.position.lng),
 			map: map,
 			title: station.name,
-			number: station.number
+			number: station.number,
+			//icon: 'images/station_icones/bicycle_green.png'
 		});
 		marker.addListener('click', function() {
-			    //map.setZoom(20);
 			    map.setCenter(marker.getPosition());
 			    velocityController.stations.getStation(station);
 			    velocityController.reservations.closeReservationCard();
@@ -40,10 +40,54 @@ const velibMap = {
 		marker.setMap(null);
 		velibMap.markers.push(marker);
 	},
-	showMarkersByLocation(stationNumbers){
+	showMarkersByLocation(stationNumbers, availableBikesPerStations){
 		velibMap.markers.forEach(marker => marker.setMap(null));
+
 		velibMap.markers.forEach(function(marker){
 			if(stationNumbers.includes(marker.number)){
+				var markerStationBikesIndex = availableBikesPerStations.findIndex(function(numberAndBikes){
+					return numberAndBikes[0] == marker.number;
+				});
+				if(markerStationBikesIndex == (-1)){
+					console.log(availableBikesPerStations);
+					console.log(marker.number);
+					console.log(markerStationBikesIndex);
+				}
+				if(availableBikesPerStations[markerStationBikesIndex][1] > 5 ){
+					var image = {
+					    url: 'images/station_icones/biker_green.png',
+					    // This marker is 20 pixels wide by 32 pixels high.
+					    size: new google.maps.Size(64, 64),
+					    // The origin for this image is (0, 0).
+					    origin: new google.maps.Point(0, 0),
+					    // The anchor for this image is the base of the flagpole at (0, 32).
+					    anchor: new google.maps.Point(0, 64)
+					  };
+					  marker.setIcon(image);
+				}else if(availableBikesPerStations[markerStationBikesIndex][1] > 0){
+					var image = {
+					    url: 'images/station_icones/biker_yellow.png',
+					    // This marker is 20 pixels wide by 32 pixels high.
+					    size: new google.maps.Size(64, 64),
+					    // The origin for this image is (0, 0).
+					    origin: new google.maps.Point(0, 0),
+					    // The anchor for this image is the base of the flagpole at (0, 32).
+					    anchor: new google.maps.Point(0, 64)
+					  };
+					marker.setIcon(image);
+				}
+				else{
+					var image = {
+					    url: 'images/station_icones/biker_red.png',
+					    // This marker is 20 pixels wide by 32 pixels high.
+					    size: new google.maps.Size(64, 64),
+					    // The origin for this image is (0, 0).
+					    origin: new google.maps.Point(0, 0),
+					    // The anchor for this image is the base of the flagpole at (0, 32).
+					    anchor: new google.maps.Point(0, 64)
+					  };
+					marker.setIcon(image);
+				}
 				marker.setMap(map);
 			}
 		});

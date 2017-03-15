@@ -40,7 +40,7 @@ const settings = {
 const velibMapSettings = {
 	lat: 48.847481,
 	lng: 2.399398,
-	radius: 2000, // Radius in metters use by velocityController.stations.getStationsByLocation;
+	radius: 1000, // Radius in metters use by velocityController.stations.getStationsByLocation;
 	containerId: "google-map",
 	zoom: 16,
 	locate:{

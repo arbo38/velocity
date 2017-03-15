@@ -7,8 +7,8 @@ const velocityController = {
 		makeMarker(station){ // uses data from API @ velocity_stations/stationsHandler.requestStations 
 			velibMap.makeMarker(station); // calls to VC.station.getStation()
 		},
-		showMarkersByLocation(stationsNumber){
-			velibMap.showMarkersByLocation(stationsNumber);
+		showMarkersByLocation(stationsNumber, bikesPerStationNumber){
+			velibMap.showMarkersByLocation(stationsNumber, bikesPerStationNumber);
 		},
 		locate(){
 			velibMap.locate();

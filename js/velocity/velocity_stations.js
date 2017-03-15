@@ -32,14 +32,14 @@ const stationsHandler = {
 			dataType: 'json',
 		})
 		.done(function(data) {
-			console.log(data);
 			var stations = Array.from(data.records);
-			console.log(stations);
 			var stationsNumber = stations.map(function(station){
 				return station.fields.number}
 				);
-			velocityController.googleMap.showMarkersByLocation(stationsNumber);
-			console.log(stationsNumber);
+			var bikesPerStationNumber = stations.map(function(station){
+				return [station.fields.number, station.fields.available_bikes]}
+				);
+			velocityController.googleMap.showMarkersByLocation(stationsNumber, bikesPerStationNumber);
 			})
 		.fail(function() {
 			console.log("error");
