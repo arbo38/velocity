@@ -15,7 +15,9 @@
 <body>
   <nav class="red darken-2">
     <div class="nav-wrapper container">
-      <a href="#" id="logo-container" class="brand-logo">Velo-city <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i></a>
+      <div class="brand-logo">
+        <i id="logo" class="fa fa-bicycle fa-2x " aria-hidden="true"></i><a href="#" id="logo-container" class="">Velo-city </a> 
+      </div>
       <ul class="right hide-on-med-and-down">
         <li><a href="">Comment ça marche</a></li>
         <li><a href="">L'application</a></li>
@@ -39,7 +41,7 @@
     <section class="yellow ">
       <div class="container">
         <div class="row section-row valign-wrapper">
-        <div id= "slider-container" class="slider-container col s8 z-depth-2">
+          <div id= "slider-container" class="slider-container col s8 z-depth-2">
             <ul id="slider">
               <li class="slide showing">Slide 1</li> <!-- li.slide -->
               <li class="slide">Slide 2</li> <!-- li.slide -->
@@ -52,7 +54,6 @@
               <button class="control" id="pause"><i id="pause-icone" class="fa fa-pause" aria-hidden="true"></i></button>
               <button class="control" id="next"><i id="next-icone" class="fa fa-forward" aria-hidden="true"></i></button>
             </div> <!-- div.controls-container -->
-
           </div> <!-- div.slider-container -->
           <div class="col s4 ">
             <ul class="collapsible white" data-collapsible="accordion">
@@ -75,7 +76,6 @@
         </div> <!-- div.row -->
       </div> <!-- div.container -->
     </section>
-
 
     <div class="banner red accent-2" id="intro-banner">
       <div class="container">
@@ -252,14 +252,8 @@
       $('.modal').modal();
     })
   </script>
-
 </body>
 </html>
 
-<!-- 
-<div class="contol-container center-align">
-  <a class="waves-effect waves-light btn activator" >Me localiser</a>
-  <a id="reservation-button" class="waves-effect waves-light btn" disabled="true" href="#modal1" >Réserver</a>
-</div> div.contol-container -->
 
 
