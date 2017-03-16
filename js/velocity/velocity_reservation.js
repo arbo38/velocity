@@ -61,7 +61,7 @@ var reservationHandler = {
 			countdownId = setInterval(function () {
 				if (reservationHandler.reservationTime.remainingTime <= 0) {
 					clearInterval(countdownId);
-					velocityController.reservations.htmlReservationDisplay(false);
+					velocityController.reservations.cancel(false);
 				} else {
 					reservationHandler.reservationTime.remainingTime--;
 					sessionStorage.reservationRemainingTime = reservationHandler.reservationTime.remainingTime;

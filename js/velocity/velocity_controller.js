@@ -61,6 +61,7 @@ var velocityController = {
 		cancel: function cancel() {
 			reservationHandler.cancel(); // calls to .htmlReservationDisplay()
 			cancelReservation.disable();
+			velocityController.reservations.htmlReservationDisplay();
 			if (sessionStorage.reservedStationName == currentStation.name.split("-")[1]) {
 				currentStation.available_bikes++;
 				velocityController.stations.htmlStationInformation();
