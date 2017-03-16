@@ -45,7 +45,7 @@ var velibMapSettings = {
 	containerId: "google-map",
 	zoom: 16,
 	locate: {
-		geolocation: false,
+		geolocation: true,
 		location: {
 			lat: '',
 			lng: ''
