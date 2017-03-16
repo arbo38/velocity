@@ -55,6 +55,7 @@ function cancelReservationListener(){
 	$(this.html).on('click', function () {
 			velocityController.reservations.cancel();
 			velocityController.reservations.closeReservationCard();
+			cancelReservation.disable();
 	});
 } 
 
