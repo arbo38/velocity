@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="slider/slider.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <nav class="red darken-2">
@@ -40,8 +40,9 @@
 
     <section class="yellow ">
       <div class="container">
-        <div class="row section-row valign-wrapper">
-          <div id= "slider-container" class="slider-container col s8 z-depth-2">
+        <div class="row">
+        <div id="slider-super-container" class="col m12 l12 hide-on-small-only ">
+        <div id="slider-container" class="slider-container z-depth-2">
             <ul id="slider">
               <li class="slide showing">Slide 1</li> <!-- li.slide -->
               <li class="slide">Slide 2</li> <!-- li.slide -->
@@ -55,24 +56,26 @@
               <button class="control" id="next"><i id="next-icone" class="fa fa-forward" aria-hidden="true"></i></button>
             </div> <!-- div.controls-container -->
           </div> <!-- div.slider-container -->
-          <div class="col s4 ">
-            <ul class="collapsible white" data-collapsible="accordion">
+          </div> <!-- div.col s12 l8 -->
+          <div class="col s12 hide-on-med-and-up">
+          
+            <ul class="collapsible white" data-collapsible="accordion" >
               <li><div class="collapsible-header"><h4>Velo-city en 3 étapes</h4></div></li>
               <li>
-                <div class="collapsible-header active"><i class="material-icons">filter_drama</i>Sélectionner une station</div>
+                <div class="collapsible-header active"><i class="material-icons">visibility</i>Trouver la station la plus proche</div>
                 <div class="collapsible-body"><span>Localisez vous à l'aide du bouton de localisation (disponible au survol du bouton vert dans le panel d'information sur la station) ou naviguez sur la map afin de sélectionner une station.</span></div>
               </li>
               <li>
-                <div class="collapsible-header"><i class="material-icons">place</i>Réserver un vélo</div>
+                <div class="collapsible-header"><i class="material-icons">input</i>Réserver un vélo</div>
                 <div class="collapsible-body"><span>Si un vélo est disponible, à l'aide du bouton vert ouvrez le panel de réservation.</span></div>
               </li>
               <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Confirmer votre réservation</div>
+                <div class="collapsible-header"><i class="material-icons">done</i>Confirmer votre réservation</div>
                 <div class="collapsible-body"><span>Signez dans le canvas prévue à cette effet et valider votre réservation.</span></div>
               </li>
             </ul>
-
-          </div>
+</div> <!-- div.col s12 m12 l4 -->
+          
         </div> <!-- div.row -->
       </div> <!-- div.container -->
     </section>
@@ -83,10 +86,11 @@
         </div> <!-- div.container -->
       </div> <!-- div#application-banner.banner red accent-2 -->
 
-      <div class="yellow">
+      <section class="yellow">
         <div class="container">
-          <div class="row section-row valign-wrapper">
-            <div class="col s4 card ">
+          <div class="row">
+          <div id="station-card-container" class="col s12 m12 l4">
+            <div class="card">
 
               <!-- Card Content : Affichage de la station sélectionné -->
               <!-- ********************************************* -->
@@ -189,12 +193,13 @@
              Survoler le bouton d'action pour confirmer votre réservation ou effacer la signature.
            </p>
          </div><!-- div.card-reveal -->
-       </div> <!-- div.col s4 card yellow -->
+       </div> <!-- div.card-->
+      </div> <!-- div.col s12 m4 l4 -->
 
        <!-- Google Map : Affichage de la carte et des stations -->
        <!-- ************************************************** -->
 
-       <div class="map-container col s8">
+       <div id="map-container" class=" col s12 m12 l8">
         <div id="google-map" class="z-depth-2">
 
         </div> <!-- div#googleMap -->

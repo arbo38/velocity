@@ -2,7 +2,6 @@
 # Todo
 
 	- Améliorer le design de la page (couleurs, mise en page, taille des texts etc...)
-	
 	- Rendre la page responsive
 	- Utiliser une classe ou le prototypage pour la déclaration des boutons
 	

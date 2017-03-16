@@ -12,12 +12,17 @@ h4{
 	font-size: 28px;
 }
 
-.row{ /* No space between rows and their content */
+.row{ 
 	margin: 0;
 }
-
+/* No space between rows and their content */
 .label{
 	font-size: 14px; // Setting bootstrap label to suit fontsize of the page
+}
+
+.row .col{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
 }
 
 /* Header */
@@ -72,18 +77,21 @@ div#info-station-action-btn{
 	bottom: -28px;
 }
 
+div.card-reveal{
+	padding-top: 10px !important;
+	padding-bottom: 10px !important; 
+}
 
 /* Information Reservation Card */
+
+
 
 	/* Table Reservation Station */
 
 .info-reservation-titles{
 width: 30%;
 }
-/*
-.info-reservation{
-	text-transform: lowercase;
-}*/
+
 
 /* Google Map */
 
@@ -98,10 +106,12 @@ width: 30%;
 #signature-canvas-container{
 	position: relative;
 	margin-top: 15px;
+	width: 100%;
 }
 
 #signature-canvas{
-border: 1px solid black;
+	border: 1px solid black;
+	width: 100%;
 }
 
 div#signature-action-btn{
@@ -122,6 +132,23 @@ div.contol-container{
 margin: 5px;
 }
 
+/* Media Queries */
+
+@media all and (max-width: 992px) {
+	div#map-container{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	div#station-card-container{
+		margin-top: 10px;
+	}
+
+	div#slider-super-container{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+}
 
 
 

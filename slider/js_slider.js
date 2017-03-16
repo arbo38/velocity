@@ -1,7 +1,7 @@
 
 const sliderSetting = {
 	autoplay: true,
-	ratio: 3/6, // Exprime la hauteur du slider comme fraction de sa largeur
+	ratio: 5/10, // Exprime la hauteur du slider comme fraction de sa largeur
 	duration: 5000, // Durée en milisecondes de présentation de chaque slide
 	displayControls: true, // Défini si les boutons de controls du slider sont visibles
 	startingSlide: 0,
@@ -50,6 +50,11 @@ const jsSlider = {
 	sliderLayout(){
 		// Adapte la hauteur des slides en fonction du ratio entré en setting
 		this.sliderContainer.style.height = `${Math.round(this.sliderContainer.offsetWidth * sliderSetting.ratio)}px`;
+	},
+	sliderDynamicResize(){
+		window.addEventListener("resize", function(){
+			jsSlider.sliderLayout();
+		});
 	},
 	pause(){
 		this.pauseButton.icone.className = 'fa fa-play';
@@ -111,6 +116,7 @@ const jsSlider = {
 			this.pause();
 		}
 		this.goToSlide(this.currentSlide);
+		this.sliderDynamicResize();
 	}
 }
 
