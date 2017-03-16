@@ -1,50 +1,47 @@
 /* Custom Stylesheet */
 /**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
+* Use this file to override Materialize files so you can update
+* the core Materialize files in the future
+*
+* Made By MaterializeCSS.com
+*/
 
-// Personalisation du css
+/* General */
 
-// Header
+h4{
+	font-size: 28px;
+}
+
+.row{ /* No space between rows and their content */
+	margin: 0;
+}
+
+.label{
+	font-size: 14px; // Setting bootstrap label to suit fontsize of the page
+}
+
+/* Header */
+
+	/* Nav */
 
 ul li a:hover{
- 	text-decoration: none !important;
- 	color: white;
+	text-decoration: none !important;
+	color: white;
+}
+
+div.card{
+	margin: 0;
+	height: 460px;
 }
 
 
- h4{
- 	font-size: 28px;
- }
-
- .row{
- 	margin: 0px 0 0px 0;
- }
-
- .col.s4.card{
- 	margin: 0;
- 	height: 460px;
- }
-
-
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-	font-size: inherit;
-}
-
-// Banières de séparation 
+/* Content separator banner with title */
 
 div.container h4{
 	margin: 10px 0 10px 0;
 }
 
-
+/* Collapsible */
 
 .collapsible-header h4{
 	margin: 0;
@@ -52,42 +49,19 @@ div.container h4{
 	padding: 5px;
 }
 
+/* Information Station Card */
+
+	/* Table Information Station */
+
 .info-station{
 	padding: 5px;
-}
-
-#google-map{
-	height: 460px;
-	margin: 0;
-	padding: 0;
-}
-
-.display-error{
-	display: none;
 }
 
 .info-station-titles{
 	width: 40%;
 }
-.info-reservation-titles{
-	width: 30%;
-}
 
-.label{
-	font-size: 14px;
-}
-
-div.contol-container{
-	margin: 5px;
-}
-
-#signature-canvas{
-	border: 1px solid black;
-}
-
-/* Information Station Card */
-
-/* Configuration du bouton d'action */
+	/* Action button */
 
 div.card-image{
 	position: relative;
@@ -98,9 +72,36 @@ div#info-station-action-btn{
 	bottom: -28px;
 }
 
+
+/* Information Reservation Card */
+
+	/* Table Reservation Station */
+
+.info-reservation-titles{
+width: 30%;
+}
+/*
+.info-reservation{
+	text-transform: lowercase;
+}*/
+
+/* Google Map */
+
+#google-map{
+	height: 460px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Signature Pad */
+
 #signature-canvas-container{
 	position: relative;
 	margin-top: 15px;
+}
+
+#signature-canvas{
+border: 1px solid black;
 }
 
 div#signature-action-btn{
@@ -109,16 +110,24 @@ div#signature-action-btn{
 	right: -15px;
 }
 
-.info-reservation{
-	text-transform: lowercase;
-}
+/* Footer */
 
 footer.page-footer{
-	padding-bottom: 40px;
+padding-bottom: 40px;
 }
 
-.fa.fa-bicycle.fa-2x{
-	display: inline !important;
+	/* Cancel Button */
+
+div.contol-container{
+margin: 5px;
 }
 
-// Loader
+
+
+
+
+
+
+
+
+

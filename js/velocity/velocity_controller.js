@@ -65,6 +65,9 @@ const velocityController = {
 		clearSignatureCanvas(){
 			signaturePad.clear();
 		},
+		htmlReservationPanelInformation(){
+			informationReservation.set();
+		},
 		htmlReservationDisplay(reservation){ // reservation = true (there is a reservation) or false
 			footerReservationDisplay.set(reservation); // Display reservation information and countdown in the page footer
 		}

@@ -26,6 +26,7 @@ const openReservationPanel = {
 	listeners(){
 		$(openReservationPanel.html).on('click', function(){
 			openReservationPanel.hide();
+			velocityController.reservations.htmlReservationPanelInformation();
 		});
 	},
 	init(){
