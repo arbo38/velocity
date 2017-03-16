@@ -1,10 +1,11 @@
 
 # Todo
 
-	- Améliorer le design de la page (couleurs, mise en page, taille des texts etc...)
-	- Rendre la page responsive
+	
 	- Utiliser une classe ou le prototypage pour la déclaration des boutons
 	
+	- Améliorer le design de la page (couleurs, mise en page, taille des texts etc...) / Done
+	- Rendre la page responsive / Done
 	- Reformater le fichier style.css / Done
 	- Implémenter de nouvelles icones de marker / Done
 	- Implémenter le drag and drop avec refresh marker / Done
@@ -19,3 +20,4 @@
 	- Corriger un bug d'affichage => espace blanc en bas de page / Done
 	- Décompter le vélo lors de la réservation / Done
 	- Rajouter un vélo lors de l'annulation / Done
+

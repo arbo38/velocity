@@ -34,11 +34,9 @@ ul li a:hover{
 	color: white;
 }
 
-div.card{
-	margin: 0;
-	height: 460px;
+.side-nav a:hover {
+	color: rgba(0, 0, 0, 0.87) !important;
 }
-
 
 /* Content separator banner with title */
 
@@ -55,6 +53,11 @@ div.container h4{
 }
 
 /* Information Station Card */
+
+div.card{
+	margin: 0;
+	height: 460px;
+}
 
 	/* Table Information Station */
 
