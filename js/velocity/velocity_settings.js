@@ -1,60 +1,55 @@
+'use strict';
 
 // Global variables
 
-let map;
-let currentStation = {
+var map = void 0;
+var currentStation = {
 	address: '',
-	available_bike_stands:'',
-	available_bikes:'',
-	banking:'',
-	bike_stands:'',
-	bonus:'',
-	false:'',
-	contract_name:'',
-	last_update:'',
-	name:'',
-	number:'',
-	positionObject:{
-		lat:'',
-		lng:''
+	available_bike_stands: '',
+	available_bikes: '',
+	banking: '',
+	bike_stands: '',
+	bonus: '',
+	false: '',
+	contract_name: '',
+	last_update: '',
+	name: '',
+	number: '',
+	positionObject: {
+		lat: '',
+		lng: ''
 	},
-	status:''
-}
-let countdownId;
-let signaturePad;
+	status: ''
+};
+var countdownId = void 0;
+var signaturePad = void 0;
 
 // Settings
 
-const apiKey = "0f8b48945bd4f96384ef490b4b5a8ac585471f18";
-const contrat = "paris";
-const stationsFromContract = `https://api.jcdecaux.com/vls/v1/stations?contract=${contrat}&apiKey=${apiKey}`;
-const workingURL = "https://api.jcdecaux.com/vls/v1/stations?contract=Paris&apiKey=0f8b48945bd4f96384ef490b4b5a8ac585471f18";	
+var apiKey = "0f8b48945bd4f96384ef490b4b5a8ac585471f18";
+var contrat = "paris";
+var stationsFromContract = 'https://api.jcdecaux.com/vls/v1/stations?contract=' + contrat + '&apiKey=' + apiKey;
+var workingURL = "https://api.jcdecaux.com/vls/v1/stations?contract=Paris&apiKey=0f8b48945bd4f96384ef490b4b5a8ac585471f18";
 
 // const stationsByLocation = `https://opendata.paris.fr/api/records/1.0/search/?dataset=stations-velib-disponibilites-en-temps-reel&geofilter.distance=${lat}%2C${lng}%2C${radius}`;
 
 
-const settings = {
-	reservationValidity: 1,
-}
+var settings = {
+	reservationValidity: 1
+};
 
-const velibMapSettings = {
+var velibMapSettings = {
 	lat: 48.847481,
 	lng: 2.399398,
 	radius: 1000, // Radius in metters use by velocityController.stations.getStationsByLocation;
 	containerId: "google-map",
 	zoom: 16,
-	locate:{
+	locate: {
 		geolocation: false,
 		location: {
 			lat: '',
 			lng: ''
 		},
-		fakeUserLocations: [
-		{lat:48.869496, lng:2.316421},
-		{lat:48.842023, lng:2.356963},
-		{lat:48.846975, lng:2.396777},
-		{lat:48.843461, lng:2.322247},
-		{lat:48.859675, lng:2.352640}
-		]
+		fakeUserLocations: [{ lat: 48.869496, lng: 2.316421 }, { lat: 48.842023, lng: 2.356963 }, { lat: 48.846975, lng: 2.396777 }, { lat: 48.843461, lng: 2.322247 }, { lat: 48.859675, lng: 2.352640 }]
 	}
-}
+};

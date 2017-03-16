@@ -1,5 +1,7 @@
-const buttonGlobalInit = {
-	initAllButtons(){
+"use strict";
+
+var buttonGlobalInit = {
+	initAllButtons: function initAllButtons() {
 		openReservationPanel.init();
 		closeReservationPanel.init();
 		locate.init();
@@ -7,107 +9,109 @@ const buttonGlobalInit = {
 		cancelReservation.init();
 		clearCanvas.init();
 	}
-}
+};
 
-const openReservationPanel = {
+var openReservationPanel = {
 	html: "",
-	enable(){
-		$(openReservationPanel.html).removeAttr(`disabled`);
+	enable: function enable() {
+		$(openReservationPanel.html).removeAttr("disabled");
 	},
-	disable(){
-		$(openReservationPanel.html).attr(`disabled`, true);
+	disable: function disable() {
+		$(openReservationPanel.html).attr("disabled", true);
 	},
-	show(){
+	show: function show() {
 		$(openReservationPanel.html).show();
 	},
-	hide(){
+	hide: function hide() {
 		$(openReservationPanel.html).hide();
 	},
-	listeners(){
-		$(openReservationPanel.html).on('click', function(){
+	listeners: function listeners() {
+		$(openReservationPanel.html).on('click', function () {
 			openReservationPanel.hide();
 			velocityController.reservations.htmlReservationPanelInformation();
 		});
 	},
-	init(){
+	init: function init() {
 		this.html = $("#open-reservation-panel-btn");
 		this.listeners();
 	}
-}
+};
 
-const closeReservationPanel = {
+var closeReservationPanel = {
 	html: "",
-	listeners(){
-		$(closeReservationPanel.html).on('click', function(){
+	listeners: function listeners() {
+		$(closeReservationPanel.html).on('click', function () {
 			openReservationPanel.show();
 			velocityController.reservations.clearSignatureCanvas();
 		});
 	},
-	init(){
+	init: function init() {
 		this.html = $("#close-reservation-panel-btn");
 		this.listeners();
 	}
-}
+};
 
-const locate = {
+var locate = {
 	html: "",
-	listeners(){
+	listeners: function listeners() {
 		$(locate.html).on("click", function (event) {
-		    velocityController.googleMap.locate();
+			velocityController.googleMap.locate();
 		});
 	},
-	init(){
+	init: function init() {
 		this.html = $("#locate-btn");
 		this.listeners();
 	}
-}
+};
 
-const confirmReservation = {
+var confirmReservation = {
 	html: "",
-	listeners(){ // on click create a new reservation
+	listeners: function listeners() {
+		// on click create a new reservation
 		$(confirmReservation.html).on("click", function (event) {
-		    if (signaturePad.isEmpty()) {
-		        alert("Merci de signer avant de valider");
-		    } else {
-		    	velocityController.reservations.create();
-		    }
+			if (signaturePad.isEmpty()) {
+				alert("Merci de signer avant de valider");
+			} else {
+				velocityController.reservations.create();
+			}
 		});
 	},
-	init(){
+	init: function init() {
 		this.html = $("#confirmation-reservation-btn");
 		this.listeners();
 	}
-}
+};
 
-const cancelReservation = {
+var cancelReservation = {
 	html: "",
-	enable(){
-		$(cancelReservation.html).removeAttr(`disabled`);
+	enable: function enable() {
+		$(cancelReservation.html).removeAttr("disabled");
 	},
-	disable(){
-		$(cancelReservation.html).attr(`disabled`, true);
+	disable: function disable() {
+		$(cancelReservation.html).attr("disabled", true);
 	},
-	listeners(){ // on click cancel reservation and hide reservation panel
-		$(cancelReservation.html).on("click", function(){ 
+	listeners: function listeners() {
+		// on click cancel reservation and hide reservation panel
+		$(cancelReservation.html).on("click", function () {
 			velocityController.reservations.cancel();
-			velocityController.reservations.closeReservationCard();	
+			velocityController.reservations.closeReservationCard();
 		});
 	},
-	init(){
+	init: function init() {
 		this.html = $("#cancel-reservation-btn");
 		this.listeners();
 	}
-}
+};
 
-const clearCanvas = {
+var clearCanvas = {
 	html: "",
-	listeners(){
+	listeners: function listeners() {
 		$(clearCanvas.html).on("click", function (event) {
 			velocityController.reservations.clearSignatureCanvas();
 		});
 	},
-	init(){
+	init: function init() {
 		this.html = $("#clear-canvas");
 		this.listeners();
 	}
-}
+};
