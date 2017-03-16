@@ -111,7 +111,7 @@ width: 30%;
 
 #signature-canvas{
 	border: 1px solid black;
-	width: 100%;
+	max-width: 364px;
 }
 
 div#signature-action-btn{

@@ -19,14 +19,14 @@
         <i id="logo" class="fa fa-bicycle fa-2x " aria-hidden="true"></i><a href="#" id="logo-container" class="">Velo-city </a> 
       </div>
       <ul class="right hide-on-med-and-down">
-        <li><a href="">Comment ça marche</a></li>
-        <li><a href="">L'application</a></li>
-        <li><a href="">Votre réservation</a></li>
+        <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+        <li><a href="#application">L'application</a></li>
+        <li><a href="#votre-reservation">Votre réservation</a></li>
       </ul> <!-- ul.right hide-on-med-and-down -->
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="">Comment ça marche</a></li>
-        <li><a href="">L'application</a></li>
-        <li><a href="">Votre réservation</a></li>
+        <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+        <li><a href="#application">L'application</a></li>
+        <li><a href="#votre-reservation">Votre réservation</a></li>
       </ul> <!-- ul.side-nav -->
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div> <!-- div.nav-wrapper container -->
@@ -34,7 +34,7 @@
 
   <div class="banner red accent-2" id="intro-banner">
     <div class="container">
-      <h4 class="white-text">Velocity, comment ça marche?</h1>
+      <h4 id="comment-ca-marche" class="white-text scrollspy">Velocity, comment ça marche?</h1>
       </div> <!-- div.container -->
     </div> <!-- div#application-banner.banner red accent-2 -->
 
@@ -82,7 +82,7 @@
 
     <div class="banner red accent-2" id="application-banner">
       <div class="container">
-        <h4 class="white-text">Velocity, l'application</h1>
+        <h4 id="application" class="white-text scrollspy">Velocity, l'application</h1>
         </div> <!-- div.container -->
       </div> <!-- div#application-banner.banner red accent-2 -->
 
@@ -209,7 +209,7 @@
   </div> <!-- div.container -->
 </section>
 
-<footer class="page-footer orange">
+<footer id="votre-reservation" class="page-footer orange scrollspy">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
@@ -223,6 +223,8 @@
     </div>
   </footer>
 
+  <!--  Plyfills--> 
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <!--  Scripts--> 
   <script src="https://use.fontawesome.com/940c48a510.js"></script><!-- Latest fontawesome -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script><!-- Jquery -->     
@@ -250,7 +252,7 @@
     $(document).ready(function(){
       jsSliderRun();
       velocityRun();
-      $('.modal').modal();
+      $('.scrollspy').scrollSpy();
     })
   </script>
 </body>

@@ -30,12 +30,17 @@ const velibMap = {
 			map: map,
 			title: station.name,
 			number: station.number,
-			//icon: 'images/station_icones/bicycle_green.png'
 		});
 		marker.addListener('click', function() {
 			    map.setCenter(marker.getPosition());
 			    velocityController.stations.getStation(station);
 			    velocityController.reservations.closeReservationCard();
+			    if($("body").width() < 992){
+			    	window.location.href = "#application";
+			    	console.log("link to application");
+			    }else {
+			    	console.log("no link");
+			    }
 			});
 		marker.setMap(null);
 		velibMap.markers.push(marker);
