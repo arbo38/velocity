@@ -1,8 +1,8 @@
 
 function velocityRun(){
+	createAllButtons();
 	velocityController.googleMap.initialize();
 	velocityController.stations.getAllStations();
 	signaturePadHandler.init();
-	buttonGlobalInit.initAllButtons();
 	velocityController.reservations.check();
 }

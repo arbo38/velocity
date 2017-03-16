@@ -71,4 +71,4 @@ var reservationHandler = {
 			}, 1000);
 		}
 	}
-};
+}

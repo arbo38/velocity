@@ -1,117 +1,84 @@
-"use strict";
 
-var buttonGlobalInit = {
-	initAllButtons: function initAllButtons() {
-		openReservationPanel.init();
-		closeReservationPanel.init();
-		locate.init();
-		confirmReservation.init();
-		cancelReservation.init();
-		clearCanvas.init();
+class Button{ // Class managing buttons
+	constructor(selector, listener){
+		this.html = $(selector);
+		this.listener = listener;
+		this.listener();
 	}
-};
+	enable(){
+		$(this.html).removeAttr("disabled");
+	}
+	disable(){
+		$(this.html).attr("disabled", true);
+	}
+	show(){
+		$(this.html).show();
+	}
+	hide(){
+		$(this.html).hide();
+	}
+}
 
-var openReservationPanel = {
-	html: "",
-	enable: function enable() {
-		$(openReservationPanel.html).removeAttr("disabled");
-	},
-	disable: function disable() {
-		$(openReservationPanel.html).attr("disabled", true);
-	},
-	show: function show() {
-		$(openReservationPanel.html).show();
-	},
-	hide: function hide() {
-		$(openReservationPanel.html).hide();
-	},
-	listeners: function listeners() {
-		$(openReservationPanel.html).on('click', function () {
+/* List of buttons listeners used for their initialization */
+
+function openReservationPanelListener(){
+	$(this.html).on('click', function () {
 			openReservationPanel.hide();
 			velocityController.reservations.htmlReservationPanelInformation();
-		});
-	},
-	init: function init() {
-		this.html = $("#open-reservation-panel-btn");
-		this.listeners();
-	}
-};
+	});
+} 
 
-var closeReservationPanel = {
-	html: "",
-	listeners: function listeners() {
-		$(closeReservationPanel.html).on('click', function () {
+function closeReservationPanelListener(){
+	$(this.html).on('click', function () {
 			openReservationPanel.show();
 			velocityController.reservations.clearSignatureCanvas();
-		});
-	},
-	init: function init() {
-		this.html = $("#close-reservation-panel-btn");
-		this.listeners();
-	}
-};
+	});
+} 
 
-var locate = {
-	html: "",
-	listeners: function listeners() {
-		$(locate.html).on("click", function (event) {
+function locateListener(){
+	$(this.html).on('click', function () {
 			velocityController.googleMap.locate();
-		});
-	},
-	init: function init() {
-		this.html = $("#locate-btn");
-		this.listeners();
-	}
-};
+	});
+} 
 
-var confirmReservation = {
-	html: "",
-	listeners: function listeners() {
-		// on click create a new reservation
-		$(confirmReservation.html).on("click", function (event) {
+function confirmReservationListener(){
+	$(this.html).on('click', function () {
 			if (signaturePad.isEmpty()) {
 				alert("Merci de signer avant de valider");
 			} else {
 				velocityController.reservations.create();
 			}
-		});
-	},
-	init: function init() {
-		this.html = $("#confirmation-reservation-btn");
-		this.listeners();
-	}
-};
+	});
+} 
 
-var cancelReservation = {
-	html: "",
-	enable: function enable() {
-		$(cancelReservation.html).removeAttr("disabled");
-	},
-	disable: function disable() {
-		$(cancelReservation.html).attr("disabled", true);
-	},
-	listeners: function listeners() {
-		// on click cancel reservation and hide reservation panel
-		$(cancelReservation.html).on("click", function () {
+function cancelReservationListener(){
+	$(this.html).on('click', function () {
 			velocityController.reservations.cancel();
 			velocityController.reservations.closeReservationCard();
-		});
-	},
-	init: function init() {
-		this.html = $("#cancel-reservation-btn");
-		this.listeners();
-	}
-};
+	});
+} 
 
-var clearCanvas = {
-	html: "",
-	listeners: function listeners() {
-		$(clearCanvas.html).on("click", function (event) {
+function clearCanvasListener(){
+	$(this.html).on('click', function () {
 			velocityController.reservations.clearSignatureCanvas();
-		});
-	},
-	init: function init() {
-		this.html = $("#clear-canvas");
-		this.listeners();
-	}
-};
+	});
+} 
+
+/* Buttons initializations */
+
+var openReservationPanel;
+var closeReservationPanel;
+var locate;
+var confirmReservation;
+var cancelReservation;
+var clearCanvas;
+
+function createAllButtons(){
+	openReservationPanel = new Button("#open-reservation-panel-btn", openReservationPanelListener);
+	closeReservationPanel = new Button("#close-reservation-panel-btn", closeReservationPanelListener);
+	locate = new Button("#locate-btn", locateListener);
+	confirmReservation = new Button("#confirmation-reservation-btn", confirmReservationListener);
+	cancelReservation = new Button("#cancel-reservation-btn", cancelReservationListener);
+	clearCanvas = new Button("#clear-canvas", clearCanvasListener);
+}
+
