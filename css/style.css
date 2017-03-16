@@ -6,6 +6,16 @@
  * Made By MaterializeCSS.com
  */
 
+// Personalisation du css
+
+// Header
+
+ul li a:hover{
+ 	text-decoration: none !important;
+ 	color: white;
+}
+
+
  h4{
  	font-size: 28px;
  }
@@ -19,10 +29,7 @@
  	height: 460px;
  }
 
-ul li a:hover{
- 	text-decoration: none !important;
- 	color: white;
- }
+
 
 .icon-block {
   padding: 0 15px;
@@ -31,14 +38,13 @@ ul li a:hover{
 	font-size: inherit;
 }
 
-#intro-banner{
-	margin: 0 !important;
-	padding: 10px;
+// Banières de séparation 
+
+div.container h4{
+	margin: 10px 0 10px 0;
 }
 
-#intro-banner h4{
-	margin: 0;
-}
+
 
 .collapsible-header h4{
 	margin: 0;

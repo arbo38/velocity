@@ -2,6 +2,8 @@
 # Todo
 
 	- Améliorer le design de la page (couleurs, mise en page, taille des texts etc...)
+	- Reformater le fichier style.css
+	- Rendre la page responsive
 	- Utiliser une classe ou le prototypage pour la déclaration des boutons
 	
 	- Implémenter de nouvelles icones de marker / Done
