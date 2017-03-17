@@ -76,6 +76,18 @@ function clearCanvasListener(){
 	$(this.html).on('click', function () {
 			velocityController.reservations.clearSignatureCanvas();
 	});
+}
+
+function infoStationMenuListener(){
+	$(this.html).on('click', function () {
+			console.log("Click on infoStationMenu");
+	});
+} 
+
+function signatureMenuListener(){
+	$(this.html).on('click', function () {
+			console.log("Click on infoStationMenu");
+	});
 } 
 
 /* Buttons initializations */
@@ -97,11 +109,11 @@ var cancelReservation;
 /* Initialize all buttons by calling this function @velocity_init-function */
 
 function createAllButtons(){
-	infoStationMenu = new Button("#info-station-action-btn");
+	infoStationMenu = new Button("#info-station-action-btn", infoStationMenuListener);
 	locate = new Button("#locate-btn", locateListener);
 	openReservationPanel = new Button("#open-reservation-panel-btn", openReservationPanelListener);
 	
-	signatureMenu = new Button("#signature-action-btn");
+	signatureMenu = new Button("#signature-action-btn", signatureMenuListener);
 	confirmReservation = new Button("#confirmation-reservation-btn", confirmReservationListener);
 	clearCanvas = new Button("#clear-canvas", clearCanvasListener);
 
