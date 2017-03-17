@@ -1,9 +1,12 @@
 
 class Button{ // Class managing buttons
-	constructor(selector, listener){
+	constructor(selector, listener = false){
 		this.html = $(selector);
-		this.listener = listener;
-		this.listener();
+		if(listener){
+			this.listener = listener;
+			this.listener();
+		}
+		
 	}
 	enable(){
 		$(this.html).removeAttr("disabled");
@@ -17,26 +20,29 @@ class Button{ // Class managing buttons
 	hide(){
 		$(this.html).hide();
 	}
+	deactivate(){
+		$(this.html).removeClass('active');
+	}
 }
 
 /* List of buttons listeners used for their initialization */
 
 function openReservationPanelListener(){
 	$(this.html).on('click', function () {
-			$("#info-station-action-btn").hide();
+			infoStationMenu.hide();
 			openReservationPanel.hide();
-			$("#info-station-action-btn").removeClass('active');
-			$("#signature-action-btn").removeClass('active');
+			infoStationMenu.deactivate();
+			signatureMenu.deactivate();
 			velocityController.reservations.htmlReservationPanelInformation();
 	});
 } 
 
 function closeReservationPanelListener(){
 	$(this.html).on('click', function () {
-			$("#info-station-action-btn").show();
+			infoStationMenu.show();
 			openReservationPanel.show();
 			velocityController.reservations.clearSignatureCanvas();
-			$("#signature-action-btn").removeClass('active');
+			infoStationMenu.deactivate();
 	});
 } 
 
@@ -52,8 +58,8 @@ function confirmReservationListener(){
 				alert("Merci de signer avant de valider");
 			} else {
 				velocityController.reservations.create();
-				$("#info-station-action-btn").show();
-				$("#signature-action-btn").removeClass('active');
+				infoStationMenu.show();
+				signatureMenu.deactivate();
 			}
 	});
 } 
@@ -74,19 +80,38 @@ function clearCanvasListener(){
 
 /* Buttons initializations */
 
-var openReservationPanel;
-var closeReservationPanel;
+/* Declaring buttons as global variables */
+
+	// Menu button information station card
+var infoStationMenu;
 var locate;
+var openReservationPanel;
+	// Menu button reservation card
+var signatureMenu;
 var confirmReservation;
-var cancelReservation;
 var clearCanvas;
+	// Other buttons
+var closeReservationPanel;
+var cancelReservation;
+
+/* Initialize all buttons by calling this function @velocity_init-function */
 
 function createAllButtons(){
-	openReservationPanel = new Button("#open-reservation-panel-btn", openReservationPanelListener);
-	closeReservationPanel = new Button("#close-reservation-panel-btn", closeReservationPanelListener);
+	infoStationMenu = new Button("#info-station-action-btn");
 	locate = new Button("#locate-btn", locateListener);
+	openReservationPanel = new Button("#open-reservation-panel-btn", openReservationPanelListener);
+	
+	signatureMenu = new Button("#signature-action-btn");
 	confirmReservation = new Button("#confirmation-reservation-btn", confirmReservationListener);
-	cancelReservation = new Button("#cancel-reservation-btn", cancelReservationListener);
 	clearCanvas = new Button("#clear-canvas", clearCanvasListener);
+
+	closeReservationPanel = new Button("#close-reservation-panel-btn", closeReservationPanelListener);
+	cancelReservation = new Button("#cancel-reservation-btn", cancelReservationListener);
 }
+
+
+
+
+
+
 
