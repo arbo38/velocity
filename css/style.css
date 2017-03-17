@@ -117,6 +117,12 @@ width: 30%;
 	max-width: 340px;
 }
 
+@media all and (max-width: 1180px) {
+	#signature-canvas{
+		max-width: 250px;
+	}
+}
+
 div#signature-action-btn{
 	position: absolute;
 	bottom: 0px;
