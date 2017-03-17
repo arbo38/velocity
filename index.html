@@ -41,24 +41,24 @@
     <section class="purple lighten-2 ">
       <div class="container">
         <div class="row">
-        <div id="slider-super-container" class="col m12 l12 hide-on-small-only ">
-        <div id="slider-container" class="slider-container z-depth-2">
-            <ul id="slider">
-              <li class="slide showing">Slide 1</li> <!-- li.slide -->
-              <li class="slide">Slide 2</li> <!-- li.slide -->
-              <li class="slide">Slide 3</li> <!-- li.slide -->
-              <li class="slide">Slide 4</li> <!-- li.slide -->
-              <li class="slide">Slide 5</li> <!-- li.slide -->
-            </ul> <!-- ul#slides -->
-            <div id="control-container">
-              <button class="control" id="previous"><i id="previous-icone" class="fa fa-backward" aria-hidden="true"></i></button>
-              <button class="control" id="pause"><i id="pause-icone" class="fa fa-pause" aria-hidden="true"></i></button>
-              <button class="control" id="next"><i id="next-icone" class="fa fa-forward" aria-hidden="true"></i></button>
-            </div> <!-- div.controls-container -->
-          </div> <!-- div.slider-container -->
+          <div id="slider-super-container" class="col m12 l12 hide-on-small-only ">
+            <div id="slider-container" class="slider-container z-depth-2">
+              <ul id="slider">
+                <li class="slide showing">Slide 1</li> <!-- li.slide -->
+                <li class="slide">Slide 2</li> <!-- li.slide -->
+                <li class="slide">Slide 3</li> <!-- li.slide -->
+                <li class="slide">Slide 4</li> <!-- li.slide -->
+                <li class="slide">Slide 5</li> <!-- li.slide -->
+              </ul> <!-- ul#slides -->
+              <div id="control-container">
+                <button class="control" id="previous"><i id="previous-icone" class="fa fa-backward" aria-hidden="true"></i></button>
+                <button class="control" id="pause"><i id="pause-icone" class="fa fa-pause" aria-hidden="true"></i></button>
+                <button class="control" id="next"><i id="next-icone" class="fa fa-forward" aria-hidden="true"></i></button>
+              </div> <!-- div.controls-container -->
+            </div> <!-- div.slider-container -->
           </div> <!-- div.col s12 l8 -->
           <div class="col s12 hide-on-med-and-up">
-          
+
             <ul class="collapsible white" data-collapsible="accordion" >
               <li><div class="collapsible-header"><h4>Velo-city en 3 étapes</h4></div></li>
               <li>
@@ -74,7 +74,7 @@
                 <div class="collapsible-body"><span>Signez dans le canvas prévue à cette effet et valider votre réservation.</span></div>
               </li>
             </ul>
-</div> <!-- div.col s12 m12 l4 -->
+          </div> <!-- div.col s12 m12 l4 -->
           
         </div> <!-- div.row -->
       </div> <!-- div.container -->
@@ -89,77 +89,83 @@
       <section class="purple lighten-2">
         <div class="container">
           <div class="row">
-          <div id="station-card-container" class="col s12 m12 l4">
-            <div class="card">
+            <div id="station-card-container" class="col s12 m12 l4">
+              <div class="card">
 
-              <!-- Card Content : Affichage de la station sélectionné -->
+                <!-- Card Content : Affichage de la station sélectionné -->
+                <!-- ********************************************* -->
+                <div class="card-image card-table">
+                  <div class="fixed-action-btn click-to-toggle" id="info-station-action-btn">
+                    <a class="btn-floating btn-large red">
+                      <i class="material-icons">menu</i>
+                    </a>
+                    <ul>
+                      <li><a id="locate-btn" class="btn-floating blue tooltipped" data-position="right" data-delay="50" data-tooltip="Me localiser"><i class="material-icons">my_location</i></a>
+                      </li>
+                      <li>
+                        <a id="open-reservation-panel-btn" class="btn-floating btn-large green activator tooltipped"  data-position="right" data-delay="50" data-tooltip="Réserver"  disabled >
+                          <i class="material-icons">navigation</i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <table class="white striped">
+                    <thead>
+                      <tr>
+                        <th data-field="name" colspan="2" class="center-align">Information station</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="info-station-titles">Nom</td>
+                        <td><span id="info-station-name" class="info-station"></span></td>
+                      </tr>
+                      <tr>
+                        <td class="info-station-titles">Status</td>
+                        <td><span id="info-station-status" class="info-station"></span></td>
+                      </tr>
+                      <tr>
+                        <td class="info-station-titles">Adresse</td>
+                        <td><span id="info-station-address" class="info-station"></span></td>
+                      </tr>
+                      <tr>
+                        <td class="info-station-titles">Capacité</td>
+                        <td><span id="info-station-capacity" class="info-station"></span></td>
+                      </tr>
+                      <tr>
+                        <td class="info-station-titles">Vélo disponibles</td>
+                        <td><span id="info-station-available-bikes" class="info-station"></span></td>
+                      </tr>
+                      <tr>
+                        <td class="info-station-titles">Emplacement disponible</td>
+                        <td><span id="info-station-available-stands" class="info-station"></span></td>
+                      </tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> <!-- div.card-image -->
+              <div class="divider"></div> <!-- div.divider -->
+              <div class="card-content">
+                <p>
+                  Survoler le bouton d'action pour vous localiser ou réserver votre vélo.
+                </p>
+              </div> <!-- div.card-content -->
+
+              <!-- Card reveal : Finalisationd de la reservation -->
               <!-- ********************************************* -->
-              <div class="card-image card-table">
-                <div class="fixed-action-btn" id="info-station-action-btn">
-                  <a id="open-reservation-panel-btn" class="btn-floating btn-large green activator tooltipped"  data-position="right" data-delay="50" data-tooltip="Réserver"  disabled >
-                    <i class="material-icons">navigation</i>
-                  </a>
-                  <ul>
-                    <li><a id="locate-btn" class="btn-floating blue tooltipped" data-position="right" data-delay="50" data-tooltip="Me localiser"><i class="material-icons">my_location</i></a></li>
-                  </ul>
-                </div>
+
+              <div class="card-reveal tooltipped" data-position="top" data-delay="50" data-tooltip="Signez pour finaliser la résevation">
+                <span class="card-title grey-text text-darken-4">Votre réservation<i id="close-reservation-panel-btn" class="material-icons right">close</i></span>
                 <table class="white striped">
-                  <thead>
+                  <tbody id="testbody">
                     <tr>
-                      <th data-field="name" colspan="2" class="center-align">Information station</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="info-station-titles">Nom</td>
-                      <td><span id="info-station-name" class="info-station"></span></td>
+                      <td class="info-reservation-titles">Station</td>
+                      <td><span id="info-reservation-name" class="info-reservation">Mayo</span></td>
                     </tr>
                     <tr>
-                      <td class="info-station-titles">Status</td>
-                      <td><span id="info-station-status" class="info-station"></span></td>
+                      <td class="info-reservation-titles">Adresse</td>
+                      <td><span id="info-reservation-address" class="info-reservation">2 allée de taillefer</span></td>
                     </tr>
-                    <tr>
-                      <td class="info-station-titles">Adresse</td>
-                      <td><span id="info-station-address" class="info-station"></span></td>
-                    </tr>
-                    <tr>
-                      <td class="info-station-titles">Capacité</td>
-                      <td><span id="info-station-capacity" class="info-station"></span></td>
-                    </tr>
-                    <tr>
-                      <td class="info-station-titles">Vélo disponibles</td>
-                      <td><span id="info-station-available-bikes" class="info-station"></span></td>
-                    </tr>
-                    <tr>
-                      <td class="info-station-titles">Emplacement disponible</td>
-                      <td><span id="info-station-available-stands" class="info-station"></span></td>
-                    </tr>
-                  </tr>
-                </tbody>
-              </table>
-            </div> <!-- div.card-image -->
-            <div class="divider"></div> <!-- div.divider -->
-            <div class="card-content">
-              <p>
-                Survoler le bouton d'action pour vous localiser ou réserver votre vélo.
-              </p>
-            </div> <!-- div.card-content -->
-
-            <!-- Card reveal : Finalisationd de la reservation -->
-            <!-- ********************************************* -->
-
-            <div class="card-reveal tooltipped" data-position="top" data-delay="50" data-tooltip="Signez pour finaliser la résevation">
-              <span class="card-title grey-text text-darken-4">Votre réservation<i id="close-reservation-panel-btn" class="material-icons right">close</i></span>
-              <table class="white striped">
-                <tbody id="testbody">
-                  <tr>
-                    <td class="info-reservation-titles">Station</td>
-                    <td><span id="info-reservation-name" class="info-reservation">Mayo</span></td>
-                  </tr>
-                  <tr>
-                    <td class="info-reservation-titles">Adresse</td>
-                    <td><span id="info-reservation-address" class="info-reservation">2 allée de taillefer</span></td>
-                  </tr>
                   <!--<tr>
                     <td class="info-reservation-bikes-number">Nombre de vélo</td>
                     <td><span class="info-reservation">1</span></td>
@@ -176,15 +182,20 @@
                 Votre navigateur ne supporte HTML5 Canvas.
 
               </canvas>
-              <div class="fixed-action-btn" id="signature-action-btn">
-                <a id="confirmation-reservation-btn" class="btn-floating btn-large green tooltipped" data-position="right" data-delay="50" data-tooltip="Confirmer la réservation">
-                  <i class="material-icons">done</i>
+              <div class="fixed-action-btn click-to-toggle" id="signature-action-btn">
+                <a class="btn-floating btn-large red">
+                  <i class="material-icons">menu</i>
                 </a>
                 <ul>
                  <li>
                    <a id="clear-canvas" class="btn-floating orange tooltipped"  data-position="right" data-delay="50" data-tooltip="Effacer la signature">
                      <i class="material-icons">fast_rewind</i>
                    </a>
+                 </li>
+                 <li>
+                   <a id="confirmation-reservation-btn" class="btn-floating btn-large green tooltipped" data-position="right" data-delay="50" data-tooltip="Confirmer la réservation">
+                  <i class="material-icons">done</i>
+                </a>
                  </li>
                </ul>
              </div>
@@ -194,19 +205,19 @@
            </p>
          </div><!-- div.card-reveal -->
        </div> <!-- div.card-->
-      </div> <!-- div.col s12 m4 l4 -->
+     </div> <!-- div.col s12 m4 l4 -->
 
-       <!-- Google Map : Affichage de la carte et des stations -->
-       <!-- ************************************************** -->
+     <!-- Google Map : Affichage de la carte et des stations -->
+     <!-- ************************************************** -->
 
-       <div id="map-container" class=" col s12 m12 l8">
-        <div id="google-map" class="z-depth-2">
+     <div id="map-container" class=" col s12 m12 l8">
+      <div id="google-map" class="z-depth-2">
 
-        </div> <!-- div#googleMap -->
-      </div> <!-- div.map-container -->
+      </div> <!-- div#googleMap -->
+    </div> <!-- div.map-container -->
 
-    </div> <!-- div.row -->
-  </div> <!-- div.container -->
+  </div> <!-- div.row -->
+</div> <!-- div.container -->
 </section>
 
 <footer id="votre-reservation" class="page-footer purple darken-2 scrollspy">
@@ -232,7 +243,6 @@
   <!-- Boostrap JS-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
   <script src="js/materialize/materialize.js"></script><!-- Materialize -->
   <script src="js/materialize/init.js"></script><!-- Materialize Init -->
   <script src="slider/js_slider.js"></script><!-- Slider -->

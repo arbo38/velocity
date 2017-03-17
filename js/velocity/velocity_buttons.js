@@ -23,15 +23,20 @@ class Button{ // Class managing buttons
 
 function openReservationPanelListener(){
 	$(this.html).on('click', function () {
+			$("#info-station-action-btn").hide();
 			openReservationPanel.hide();
+			$("#info-station-action-btn").removeClass('active');
+			$("#signature-action-btn").removeClass('active');
 			velocityController.reservations.htmlReservationPanelInformation();
 	});
 } 
 
 function closeReservationPanelListener(){
 	$(this.html).on('click', function () {
+			$("#info-station-action-btn").show();
 			openReservationPanel.show();
 			velocityController.reservations.clearSignatureCanvas();
+			$("#signature-action-btn").removeClass('active');
 	});
 } 
 
@@ -47,6 +52,8 @@ function confirmReservationListener(){
 				alert("Merci de signer avant de valider");
 			} else {
 				velocityController.reservations.create();
+				$("#info-station-action-btn").show();
+				$("#signature-action-btn").removeClass('active');
 			}
 	});
 } 
