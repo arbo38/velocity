@@ -13,16 +13,29 @@ h4{
 }
 
 .row{ 
-	margin: 0;
-}
-/* No space between rows and their content */
+	margin: 0; /* No space between rows and their content */
+} 
 .label{
-	font-size: 14px; // Setting bootstrap label to suit fontsize of the page
+	font-size: 14px; /* Setting bootstrap label to suit fontsize of the page */
 }
 
 .row .col{
 	padding-left: 5px !important;
 	padding-right: 5px !important;
+}
+
+/* Container Media Settings*/
+
+@media only screen and (min-width: 0px) { /* 601 */
+  .container {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 90%;
+  }
 }
 
 /* Header */
@@ -56,10 +69,19 @@ div.container h4{
 
 div.card{
 	margin: 0;
-	height: 460px;
+	height: 480px;
 }
 
 	/* Table Information Station */
+
+table th{
+	color:rgb(33, 33, 33);
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:24px;
+font-weight:300;
+	padding: 10px 0 10px 20px;
+	text-align: left;
+}
 
 .info-station{
 	padding: 5px;
@@ -67,6 +89,7 @@ div.card{
 
 .info-station-titles{
 	width: 40%;
+	padding-left: 30px;
 }
 
 	/* Action button */
@@ -99,12 +122,13 @@ width: 30%;
 /* Google Map */
 
 #google-map{
-	height: 460px;
+	height: 480px;
 	margin: 0;
 	padding: 0;
 }
 
 /* Signature Pad */
+
 
 #signature-canvas-container{
 	position: relative;
@@ -120,6 +144,18 @@ width: 30%;
 @media all and (max-width: 1180px) {
 	#signature-canvas{
 		max-width: 250px;
+	}
+}
+
+@media all and (max-width: 992px) {
+	#signature-canvas{
+		max-width: 400px;
+	}
+}
+
+@media all and (max-width: 390px) {
+	#signature-canvas{
+		max-width: 200px;
 	}
 }
 

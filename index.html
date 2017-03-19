@@ -13,7 +13,7 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="purple darken-2">
+  <nav class="light-blue darken-2">
     <div class="nav-wrapper container">
       <div class="brand-logo">
         <i id="logo" class="fa fa-bicycle fa-2x " aria-hidden="true"></i><a href="#" id="logo-container" class="">Velo-city </a> 
@@ -32,23 +32,23 @@
     </div> <!-- div.nav-wrapper container -->
   </nav> <!-- nav.purlpe darken-4 -->
 
-  <div class="banner purple" id="intro-banner">
+  <div class="banner light-blue" id="intro-banner">
     <div class="container">
       <h4 id="comment-ca-marche" class="white-text scrollspy">Velocity, comment ça marche?</h1>
       </div> <!-- div.container -->
     </div> <!-- div#application-banner.banner red accent-2 -->
 
-    <section class="purple lighten-2 ">
+    <section class="light-blue lighten-2 ">
       <div class="container">
         <div class="row">
           <div id="slider-super-container" class="col m12 l12 hide-on-small-only ">
             <div id="slider-container" class="slider-container z-depth-2">
               <ul id="slider">
-                <li class="slide showing">Slide 1</li> <!-- li.slide -->
-                <li class="slide">Slide 2</li> <!-- li.slide -->
-                <li class="slide">Slide 3</li> <!-- li.slide -->
-                <li class="slide">Slide 4</li> <!-- li.slide -->
-                <li class="slide">Slide 5</li> <!-- li.slide -->
+                <li class="slide showing"><img src="slider/slides/slide_1.png" alt="Présentation de Vélocity" /></li> <!-- li.slide -->
+                <li class="slide"><img src="slider/slides/slide_2.png" alt="Présentation de Vélocity, la carte" /></li> <!-- li.slide -->
+                <li class="slide"><img src="slider/slides/slide_3.png" alt="Présentation de Vélocity, les stations" /></li> <!-- li.slide -->
+                <li class="slide"><img src="slider/slides/slide_4.png" alt="Présentation de Vélocity, comment réserver" /></li> <!-- li.slide -->
+                <li class="slide"><img src="slider/slides/slide_5.jpg" alt="Présentation de Vélocity, votre réservation" /></li> <!-- li.slide -->
               </ul> <!-- ul#slides -->
               <div id="control-container">
                 <button class="control" id="previous"><i id="previous-icone" class="fa fa-backward" aria-hidden="true"></i></button>
@@ -62,7 +62,7 @@
             <ul class="collapsible white" data-collapsible="accordion" >
               <li><div class="collapsible-header"><h4>Velo-city en 3 étapes</h4></div></li>
               <li>
-                <div class="collapsible-header active"><i class="material-icons">visibility</i>Trouver la station la plus proche</div>
+                <div class="collapsible-header active"><i class="material-icons">my_location</i>Trouver la station la plus proche</div>
                 <div class="collapsible-body"><span>Localisez vous à l'aide du bouton de localisation (disponible au survol du bouton vert dans le panel d'information sur la station) ou naviguez sur la map afin de sélectionner une station.</span></div>
               </li>
               <li>
@@ -80,13 +80,13 @@
       </div> <!-- div.container -->
     </section>
 
-    <div class="banner purple" id="application-banner">
+    <div class="banner light-blue" id="application-banner">
       <div class="container">
         <h4 id="application" class="white-text scrollspy">Velocity, l'application</h1>
         </div> <!-- div.container -->
       </div> <!-- div#application-banner.banner red accent-2 -->
 
-      <section class="purple lighten-2">
+      <section class="light-blue lighten-2">
         <div class="container">
           <div class="row">
             <div id="station-card-container" class="col s12 m12 l4">
@@ -112,7 +112,7 @@
                   <table class="white striped">
                     <thead>
                       <tr>
-                        <th data-field="name" colspan="2" class="center-align">Information station</th>
+                        <th data-field="name" colspan="2" class="center-align">Station sélectionnée</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -147,7 +147,7 @@
               <div class="divider"></div> <!-- div.divider -->
               <div class="card-content">
                 <p>
-                  Survoler le bouton d'action pour vous localiser ou réserver votre vélo.
+                  Utilisez le bouton de menu pour vous localiser ou réserver un vélo dans la station sélectionnée.
                 </p>
               </div> <!-- div.card-content -->
 
@@ -155,7 +155,7 @@
               <!-- ********************************************* -->
 
               <div class="card-reveal tooltipped" data-position="top" data-delay="50" data-tooltip="Signez pour finaliser la résevation">
-                <span class="card-title grey-text text-darken-4">Votre réservation<i id="close-reservation-panel-btn" class="material-icons right">close</i></span>
+                <span class="card-title grey-text text-darken-4 center-align">Votre réservation<i id="close-reservation-panel-btn" class="material-icons right">close</i></span>
                 <table class="white striped">
                   <tbody id="testbody">
                     <tr>
@@ -201,7 +201,7 @@
              </div>
            </div> <!-- div#signature-canvas-container -->
            <p class="center-align" style="margin-bottom: 0px;">
-             Survoler le bouton d'action pour confirmer votre réservation ou effacer la signature.
+             A l'aide du bouton de menu, confirmer votre réservation ou effacer la signature en cours.
            </p>
          </div><!-- div.card-reveal -->
        </div> <!-- div.card-->
@@ -220,7 +220,7 @@
 </div> <!-- div.container -->
 </section>
 
-<footer id="votre-reservation" class="page-footer purple darken-2 scrollspy">
+<footer id="votre-reservation" class="page-footer light-blue darken-2 scrollspy">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
@@ -245,7 +245,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="js/materialize/materialize.js"></script><!-- Materialize -->
   <script src="js/materialize/init.js"></script><!-- Materialize Init -->
-  <script src="slider/js_slider.js"></script><!-- Slider -->
+  <script src="slider/slider_settings.js"></script><!-- Slider -->
+  <script src="slider/slider.js"></script><!-- Slider -->
+  <script src="slider/slider_run.js"></script><!-- Slider -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ8nyVuNJ_C3E2I5XDluKaxHGSbSlOKeo"></script><!-- Google Map API call -->
   <script src="js/velocity/velocity_init_function.js"></script><!-- Velocity -->
   <script src="js/velocity/velocity_map.js"></script><!-- Velocity -->
