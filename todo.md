@@ -1,9 +1,12 @@
 
 # Todo
 
+	- Relire le code, ajouter des commentaires et nettoyer la console
+	- Fermé les boutons menus au click sur un bouton d'action
+	- Rendre collapsible la section contenant le slider
+
 	
-	- Utiliser une classe ou le prototypage pour la déclaration des boutons
-	
+	- Utiliser une classe ou le prototypage pour la déclaration des boutons / Done
 	- Améliorer le design de la page (couleurs, mise en page, taille des texts etc...) / Done
 	- Rendre la page responsive / Done
 	- Reformater le fichier style.css / Done

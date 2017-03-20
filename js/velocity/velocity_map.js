@@ -46,6 +46,7 @@ var velibMap = {
 			map.setCenter(marker.getPosition());
 			velocityController.stations.getStation(station);
 			velocityController.reservations.closeReservationCard();
+			infoStationMenu.show();
 			if ($("body").width() < 992) {
 				window.location.href = "#application";
 				console.log("link to application");
