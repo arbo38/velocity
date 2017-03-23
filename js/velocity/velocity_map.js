@@ -31,7 +31,6 @@ var velibMap = {
 				lat: event.latLng.lat(),
 				lng: event.latLng.lng()
 			};
-			console.log(clickLocation);
 			velocityController.stations.getStationsByLocation(clickLocation);
 		});
 	}),
@@ -43,36 +42,34 @@ var velibMap = {
 			number: station.number
 		});
 		marker.addListener('click', function () {
-			map.setCenter(marker.getPosition());
-			velocityController.stations.getStation(station);
-			velocityController.reservations.closeReservationCard();
-			infoStationMenu.show();
-			if ($("body").width() < 992) {
+			map.setCenter(marker.getPosition()); // Center the map on the marker when clicked
+			velocityController.stations.getStation(station); // Get information of the station through the API
+			velocityController.reservations.closeReservationCard(); // If the reservation panel was open, close is to display the information of station
+			infoStationMenu.show(); // Show the menu button of the information panel
+			if ($("body").width() < 992) { // If the screen is too small like on mobile, scroll to the information card to display the station selected informations
 				window.location.href = "#application";
-				console.log("link to application");
-			} else {
-				console.log("no link");
-			}
+			} 
 		});
 		marker.setMap(null);
 		velibMap.markers.push(marker);
 	},
 	showMarkersByLocation: function showMarkersByLocation(stationNumbers, availableBikesPerStations) {
 		velibMap.markers.forEach(function (marker) {
-			return marker.setMap(null);
+			return marker.setMap(null); // Hides all marker
 		});
 
 		velibMap.markers.forEach(function (marker) {
-			if (stationNumbers.includes(marker.number)) {
+			if (stationNumbers.includes(marker.number)) { // Check what marker are the ones of the stations we want to display
 				var markerStationBikesIndex = availableBikesPerStations.findIndex(function (numberAndBikes) {
-					return numberAndBikes[0] == marker.number;
+					return numberAndBikes[0] == marker.number; // Look for the index of the station number of the marker to match resolve the number of bikes for the marker
 				});
 				if (markerStationBikesIndex == -1) {
-					console.log(availableBikesPerStations);
-					console.log(marker.number);
-					console.log(markerStationBikesIndex);
+					console.warn("No index found by showMarkersByLocation for this marker in the station to display array, check information bellow");
+					console.warn(availableBikesPerStations);
+					console.warn(marker.number);
+					console.warn(markerStationBikesIndex);
 				}
-				if (availableBikesPerStations[markerStationBikesIndex][1] > 5) {
+				if (availableBikesPerStations[markerStationBikesIndex][1] > 5) { // If there is more than 5 bikes available, display in green the station's icon
 					var image = {
 						url: 'images/station_icones/biker_green.png',
 						// This marker is 20 pixels wide by 32 pixels high.
@@ -83,7 +80,7 @@ var velibMap = {
 						anchor: new google.maps.Point(0, 64)
 					};
 					marker.setIcon(image);
-				} else if (availableBikesPerStations[markerStationBikesIndex][1] > 0) {
+				} else if (availableBikesPerStations[markerStationBikesIndex][1] > 0) { // If there at least 1 bikes available, display in orange the station's icon
 					var image = {
 						url: 'images/station_icones/biker_yellow.png',
 						// This marker is 20 pixels wide by 32 pixels high.
@@ -94,7 +91,7 @@ var velibMap = {
 						anchor: new google.maps.Point(0, 64)
 					};
 					marker.setIcon(image);
-				} else {
+				} else { // If there is 0 bikes available, display in red the station's icon
 					var image = {
 						url: 'images/station_icones/biker_red.png',
 						// This marker is 20 pixels wide by 32 pixels high.
@@ -109,7 +106,6 @@ var velibMap = {
 				marker.setMap(map);
 			}
 		});
-		console.log("End of showMarkersByLocation");
 	},
 	locate: function locate() {
 		if (velibMapSettings.locate.geolocation) {

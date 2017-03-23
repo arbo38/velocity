@@ -29,65 +29,80 @@ class Button{ // Class managing buttons
 
 function openReservationPanelListener(){
 	$(this.html).on('click', function () {
-			infoStationMenu.hide();
-			openReservationPanel.hide();
-			infoStationMenu.deactivate();
-			signatureMenu.deactivate();
-			velocityController.reservations.htmlReservationPanelInformation();
+		infoStationMenu.hide();
+		openReservationPanel.hide();
+		infoStationMenu.deactivate();
+		signatureMenu.deactivate();
+		velocityController.reservations.htmlReservationPanelInformation();
 	});
 } 
 
 function closeReservationPanelListener(){
 	$(this.html).on('click', function () {
-			infoStationMenu.show();
-			openReservationPanel.show();
-			velocityController.reservations.clearSignatureCanvas();
-			infoStationMenu.deactivate();
+		infoStationMenu.show();
+		openReservationPanel.show();
+		velocityController.reservations.clearSignatureCanvas();
+		infoStationMenu.deactivate();
 	});
 } 
 
 function locateListener(){
 	$(this.html).on('click', function () {
-			velocityController.googleMap.locate();
+		velocityController.googleMap.locate();
 	});
 } 
 
 function confirmReservationListener(){
 	$(this.html).on('click', function () {
-			if (signaturePad.isEmpty()) {
-				alert("Merci de signer avant de valider");
-			} else {
-				velocityController.reservations.create();
-				infoStationMenu.show();
-				signatureMenu.deactivate();
-			}
+		if (signaturePad.isEmpty()) {
+			alert("Merci de signer avant de valider");
+		} else {
+			velocityController.reservations.create();
+			infoStationMenu.show();
+			signatureMenu.deactivate();
+		}
 	});
 } 
 
 function cancelReservationListener(){
 	$(this.html).on('click', function () {
-			velocityController.reservations.cancel();
-			velocityController.reservations.closeReservationCard();
-			cancelReservation.disable();
+		velocityController.reservations.cancel();
+		velocityController.reservations.closeReservationCard();
+		cancelReservation.disable();
 	});
 } 
 
 function clearCanvasListener(){
 	$(this.html).on('click', function () {
-			velocityController.reservations.clearSignatureCanvas();
+		velocityController.reservations.clearSignatureCanvas();
 	});
 }
 
 function infoStationMenuListener(){
 	$(this.html).on('click', function () {
-			console.log("Click on infoStationMenu");
-	});
+			// Empty listener, ready to be used if something needs to be added to this button
+		});
+	$(document).click(function(event) { 
+		if(!$(event.target).closest('#info-station-action-btn').length) {
+			if($('#info-station-action-btn').hasClass("active")) {
+				$('#info-station-action-btn').removeClass("active");
+			}
+		}        
+	})
+
 } 
 
 function signatureMenuListener(){
 	$(this.html).on('click', function () {
-			console.log("Click on infoStationMenu");
-	});
+			// Empty listener, ready to be used if something needs to be added to this button
+		});
+	$(document).click(function(event) { 
+		if(!$(event.target).closest('#signature-action-btn').length) {
+			if($('#signature-action-btn').hasClass("active")) {
+				$('#signature-action-btn').removeClass("active");
+			}
+		}        
+	})
 } 
 
 /* Buttons initializations */
@@ -95,31 +110,31 @@ function signatureMenuListener(){
 /* Declaring buttons as global variables */
 
 	// Menu button information station card
-var infoStationMenu;
-var locate;
-var openReservationPanel;
+	var infoStationMenu;
+	var locate;
+	var openReservationPanel;
 	// Menu button reservation card
-var signatureMenu;
-var confirmReservation;
-var clearCanvas;
+	var signatureMenu;
+	var confirmReservation;
+	var clearCanvas;
 	// Other buttons
-var closeReservationPanel;
-var cancelReservation;
+	var closeReservationPanel;
+	var cancelReservation;
 
-/* Initialize all buttons by calling this function @velocity_init-function */
+	/* Initialize all buttons by calling this function @velocity_init-function */
 
-function createAllButtons(){
-	infoStationMenu = new Button("#info-station-action-btn", infoStationMenuListener);
-	locate = new Button("#locate-btn", locateListener);
-	openReservationPanel = new Button("#open-reservation-panel-btn", openReservationPanelListener);
-	
-	signatureMenu = new Button("#signature-action-btn", signatureMenuListener);
-	confirmReservation = new Button("#confirmation-reservation-btn", confirmReservationListener);
-	clearCanvas = new Button("#clear-canvas", clearCanvasListener);
+	function createAllButtons(){
+		infoStationMenu = new Button("#info-station-action-btn", infoStationMenuListener);
+		locate = new Button("#locate-btn", locateListener);
+		openReservationPanel = new Button("#open-reservation-panel-btn", openReservationPanelListener);
 
-	closeReservationPanel = new Button("#close-reservation-panel-btn", closeReservationPanelListener);
-	cancelReservation = new Button("#cancel-reservation-btn", cancelReservationListener);
-}
+		signatureMenu = new Button("#signature-action-btn", signatureMenuListener);
+		confirmReservation = new Button("#confirmation-reservation-btn", confirmReservationListener);
+		clearCanvas = new Button("#clear-canvas", clearCanvasListener);
+
+		closeReservationPanel = new Button("#close-reservation-panel-btn", closeReservationPanelListener);
+		cancelReservation = new Button("#cancel-reservation-btn", cancelReservationListener);
+	}
 
 
 

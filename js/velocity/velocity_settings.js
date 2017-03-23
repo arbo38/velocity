@@ -29,15 +29,9 @@ var signaturePad = void 0;
 var apiKey = "0f8b48945bd4f96384ef490b4b5a8ac585471f18";
 var contrat = "paris";
 var stationsFromContract = 'https://api.jcdecaux.com/vls/v1/stations?contract=' + contrat + '&apiKey=' + apiKey;
-var workingURL = "https://api.jcdecaux.com/vls/v1/stations?contract=Paris&apiKey=0f8b48945bd4f96384ef490b4b5a8ac585471f18";
-
-// const stationsByLocation = `https://opendata.paris.fr/api/records/1.0/search/?dataset=stations-velib-disponibilites-en-temps-reel&geofilter.distance=${lat}%2C${lng}%2C${radius}`;
-
-
 var settings = {
 	reservationValidity: 1
 };
-
 var velibMapSettings = {
 	lat: 48.847481,
 	lng: 2.399398,

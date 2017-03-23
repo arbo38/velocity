@@ -11,11 +11,11 @@ var velocityController = {
 			// uses data from API @ velocity_stations/stationsHandler.requestStations 
 			velibMap.makeMarker(station); // calls to VC.station.getStation()
 		},
-		showMarkersByLocation: function showMarkersByLocation(stationsNumber, bikesPerStationNumber) {
+		showMarkersByLocation: function showMarkersByLocation(stationsNumber, bikesPerStationNumber) { // uses data from API @ velocity_stations/stationsHandler.requestStationsByLocation
 			velibMap.showMarkersByLocation(stationsNumber, bikesPerStationNumber);
 		},
-		locate: function locate() {
-			velibMap.locate();
+		locate: function locate() { // Call by the locate button @ velocity_buttons/locate
+			velibMap.locate(); 
 		}
 	},
 	stations: {
@@ -52,17 +52,17 @@ var velocityController = {
 			reservationHandler.store(); // Store via webstorage reservation information
 			reservationHandler.setTime(true); // true is for a new reservation
 			this.htmlReservationDisplay(true); // Display information in the footer
-			reservationHandler.countdown();
+			reservationHandler.countdown(); // starts the countdown
 			velocityController.reservations.clearSignatureCanvas();
-			openReservationPanel.show(); // Réaffichage du bouton open-reservation-panel-btn
-			cancelReservation.enable();
-			velocityController.reservations.closeReservationCard();
+			openReservationPanel.show(); // Display open-reservation-panel-btn
+			cancelReservation.enable(); // Enable the cancel reservation button
+			velocityController.reservations.closeReservationCard(); // close the reservation card
 		},
 		cancel: function cancel() {
 			reservationHandler.cancel(); // calls to .htmlReservationDisplay()
-			cancelReservation.disable();
+			cancelReservation.disable(); // Disable the cancel reservation button
 			velocityController.reservations.htmlReservationDisplay();
-			if (sessionStorage.reservedStationName == currentStation.name.split("-")[1]) {
+			if (sessionStorage.reservedStationName == currentStation.name.split("-")[1]) { // If the reservation is canceled in the current station displayed, add 1 bike
 				currentStation.available_bikes++;
 				velocityController.stations.htmlStationInformation();
 			}
@@ -72,7 +72,7 @@ var velocityController = {
 			cardReveal.hide();
 			velocityController.stations.htmlStationInformation();
 		},
-		clearSignatureCanvas: function clearSignatureCanvas() {
+		clearSignatureCanvas: function clearSignatureCanvas() { // Call by clear-canvas button @ velocity_buttons/clear-canvas
 			signaturePad.clear();
 		},
 		htmlReservationPanelInformation: function htmlReservationPanelInformation() {

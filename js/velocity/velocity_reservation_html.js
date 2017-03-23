@@ -65,7 +65,7 @@ var cardReveal = {
 					$(this).css({ display: 'none' });
 				}
 			});
-			openReservationPanel.show(); // Afficher le bouton de Réservation
+			openReservationPanel.show(); // Display the menu button of the information panel
 		}
 	}
 };

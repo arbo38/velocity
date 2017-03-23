@@ -10,26 +10,26 @@ var reservationHandler = {
 	check: function check(create) {
 		var currentTime = new Date().getTime();
 		if (sessionStorage.reservationState == "true") {
-			// Test si une réservation a été effectué lors de cette session
+			// Check if reservation has been made during this session
 			if (currentTime < Number(sessionStorage.reservationEndTime)) {
-				// Test si la reservation est toujours valide
+				// Check if the reservation is still valid
 				if (create === true) {
 					// if check() called by new reservation from velocityController.reservations.create(), this reservation must be terminated
 					velocityController.reservations.cancel();
 				} else {
-					this.reservationTime.remainingTime = Math.floor((Number(sessionStorage.reservationEndTime) - currentTime) / 1000); // Calcul du temps restant
-					this.setTime(false); // Recalcul des minutes et secondes restantes
-					this.countdown();
-					velocityController.reservations.htmlReservationDisplay(true);
-					cancelReservation.enable();
+					this.reservationTime.remainingTime = Math.floor((Number(sessionStorage.reservationEndTime) - currentTime) / 1000); // Remaining time calculation
+					this.setTime(false); // set remainingMinutes & remainingSeconds, false means this is not a new reservation
+					this.countdown(); // launch countdown
+					velocityController.reservations.htmlReservationDisplay(true); // Display reservation in the footer
+					cancelReservation.enable(); // activate the cancel button
 				}
 			} else {
-				// Si elle n'est plus valide
-				velocityController.reservations.cancel(); // Ne pas afficher de réservation
+				// If the reservation is not valid
+				velocityController.reservations.cancel(); // cancel reservation
 			}
 		} else {
-			// Si il n'y pas de réservation
-			velocityController.reservations.htmlReservationDisplay(false); // Ne pas afficher de réservation
+			// There is no reservation made during this session
+			velocityController.reservations.htmlReservationDisplay(false); // Display footer with no reservation
 		}
 	},
 	cancel: function cancel() {
@@ -39,15 +39,15 @@ var reservationHandler = {
 		this.countdown(true); // Clear countdown
 	},
 	store: function store() {
-		sessionStorage.reservationState = true;
+		sessionStorage.reservationState = true; 
 		sessionStorage.reservedStationName = currentStation.name.split("-")[1];
 		sessionStorage.reservationStartTime = this.reservationTime.reservationTimeStamp;
 		sessionStorage.reservationEndTime = this.reservationTime.reservationTimeStamp + settings.reservationValidity * 60 * 1000;
 		sessionStorage.reservationRemainingTime = Math.floor(settings.reservationValidity * 60);
 	},
 	setTime: function setTime(init) {
-		if (init === true) {
-			this.reservationTime.remainingTime = Number(sessionStorage.reservationRemainingTime);
+		if (init === true) { // In case of new reservation, sets the time remaining to the settings @ velocity_settings,
+			this.reservationTime.remainingTime = Number(sessionStorage.reservationRemainingTime); // session storage remaining time set @ velocity_reservation => store line 46
 		}
 		reservationHandler.reservationTime.remainingMinutes = Math.floor(reservationHandler.reservationTime.remainingTime / 60);
 		reservationHandler.reservationTime.remainingSeconds = reservationHandler.reservationTime.remainingTime - reservationHandler.reservationTime.remainingMinutes * 60;
@@ -57,7 +57,6 @@ var reservationHandler = {
 			clearInterval(countdownId);
 		}
 		if (this.reservationTime.remainingTime > 0) {
-			//footerReservationDisplay.setValidity(true);
 			countdownId = setInterval(function () {
 				if (reservationHandler.reservationTime.remainingTime <= 0) {
 					clearInterval(countdownId);

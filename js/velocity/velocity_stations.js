@@ -13,10 +13,9 @@ var stationsHandler = {
 		}).done(function () {
 			velocityController.stations.getStationsByLocation(velibMap.center);
 		}).fail(function () {
-			console.log("error");
-			$(".display-error").slideDown("slow");
+			alert("Une erreur est survenue lors de la consultation de l'API externe");
+			console.warn("An error has occured at velocity_stations.js stationsHandler.requestStations()");
 		}).always(function () {
-			console.log("Request Stations Done");
 		});
 	},
 	getStationsByLocation: function getStationsByLocation(location) {
@@ -37,14 +36,12 @@ var stationsHandler = {
 			});
 			velocityController.googleMap.showMarkersByLocation(stationsNumber, bikesPerStationNumber);
 		}).fail(function () {
-			console.log("error");
-		}).always(function () {
-			console.log("Request Stations by location Done");
+			alert("Une erreur est survenue lors de la consultation de l'API externe");
+			console.warn("An error has occured at velocity_stations.js stationsHandler.getStationsByLocation()");
 		});
 	},
 	stationSelected: function stationSelected(station) {
-		console.log(station);
-		var stationNumber = station.number; //Number(station.name.split("-")[0]);
+		var stationNumber = station.number; 
 		var stationFromNumber = 'https://api.jcdecaux.com/vls/v1/stations/' + stationNumber + '?contract=' + contrat + '&apiKey=' + apiKey;
 		$.ajax({
 			url: stationFromNumber,
@@ -52,9 +49,11 @@ var stationsHandler = {
 			dataType: 'json'
 		}).done(function (station) {
 			currentStation = station;
-			console.log("Request Station Done");
 		}).done(function (station) {
 			velocityController.stations.htmlStationInformation();
+		}).fail(function(){
+			alert("Une erreur est survenue lors de la consultation de l'API externe");
+			console.warn("An error has occured at velocity_stations.js stationsHandler.stationSelected()");
 		});
 	}
 };

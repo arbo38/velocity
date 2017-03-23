@@ -1,8 +1,8 @@
 
 # Todo
 
-	- Relire le code, ajouter des commentaires et nettoyer la console
-	- Fermé les boutons menus au click sur un bouton d'action
+	- Relire le code, ajouter des commentaires et nettoyer la console / Done
+	- Fermé les boutons menus au click sur un bouton d'action / Done
 	- Rendre collapsible la section contenant le slider
 
 	
