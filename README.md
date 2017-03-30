@@ -10,6 +10,7 @@ First of all, Velocity uses the Paris OPEN-DATA API, you can check it out at htt
 To display the information we use google map API, you can check it out at https://developers.google.com/maps/documentation/javascript/?hl=fr
 To allow our user to sign uppon their reservation we use _szimek_ signature_pad, more information at https://github.com/szimek/signature_pad
 We also use Jquery.
+Concerning the design of the page we use materializecss, which is an implementation of Google Material Design recomendations, more info at http://materializecss.com/ and https://material.io/guidelines/.
 
 All javascript specific to velocity can be found in the js/velocity folder.
 
