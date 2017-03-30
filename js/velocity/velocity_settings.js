@@ -30,7 +30,11 @@ var apiKey = "0f8b48945bd4f96384ef490b4b5a8ac585471f18";
 var contrat = "paris";
 var stationsFromContract = 'https://api.jcdecaux.com/vls/v1/stations?contract=' + contrat + '&apiKey=' + apiKey;
 var settings = {
+<<<<<<< HEAD
+	reservationValidity: 20
+=======
 	reservationValidity: 20 // Reservation duration in minutes
+>>>>>>> f147a00da0f23f5bd1993a3c596e60b0e343609f
 };
 var velibMapSettings = {
 	lat: 48.847481,
